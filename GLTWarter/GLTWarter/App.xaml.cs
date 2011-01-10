@@ -12,5 +12,25 @@ namespace GLTWarter
     /// </summary>
     public partial class App : Application
     {
+
+        static public App Active
+        {
+            get;
+            set;
+        }
+
+        public MainScreen MainScreen { get; set; }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            //Xceed.Wpf.DataGrid.Licenser.LicenseKey = "DGP31-M42XN-22M34-CWJA";
+
+            this.MainWindow = App.Active.MainScreen = new MainScreen();
+            //if (new LoginScreen(App.Active.Rpc).ShowDialog() == false)
+            //{
+            //    Application.Current.Shutdown();
+            //}
+            App.Active.MainScreen.Show();
+        }
     }
 }
