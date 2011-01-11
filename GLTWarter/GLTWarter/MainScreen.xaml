@@ -1,25 +1,72 @@
 ﻿<Window x:Class="GLTWarter.MainScreen"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:src="clr-namespace:GLTWarter"        
+    xmlns:src="clr-namespace:GLTWarter"
     xmlns:my="clr-namespace:GLTWarter.Controls"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    Height="700" Width="900" Icon="App.ico"
+    Height="700" Width="900"
     >
     <Window.Resources>
+        <src:MainWindowEffectiveRoleCheckConverter x:Key="MainWindowEffectiveRoleCheckConverter"/>
+        <src:MainWindowEntityRolesMapHeaderConverter x:Key="MainWindowEntityRolesMapHeaderConverter"/>
+        <src:MainWindowWeighScaleSelectionConverter x:Key="MainWindowWeighScaleSelectionConverter"/>
+        <src:MainWindowWeighScaleCheckConverter x:Key="MainWindowWeighScaleCheckConverter"/>
         <Style x:Key="EffectiveRoleStyle" TargetType="{x:Type MenuItem}">
             <Style.Setters>
-                <!--<EventSetter Event="Click" Handler="MenuItem_EffectiveRole_Click"></EventSetter>-->
-                <Setter Property="Tag" Value="{Binding Effective}"/>
-                <Setter Property="IsChecked">
+                <EventSetter Event="Click" Handler="MenuItem_EffectiveRole_Click"></EventSetter>                
+                <Setter Property="Header" Value="{Binding Converter={StaticResource MainWindowEntityRolesMapHeaderConverter}}"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="WeighScaleSelectStyle" TargetType="{x:Type MenuItem}">
+            <Style.Setters>
+                <EventSetter Event="Click" Handler="MenuItem_SelectWeighScale_Click"></EventSetter>
+                <Setter Property="Visibility">
                     <Setter.Value>
-                        <MultiBinding Converter="{StaticResource MainWindowEffectiveRoleCheckConverter}" Mode="OneWay">
-                            <Binding Path="Effective" />
-                            <!--<Binding Source="{x:Static src:App.Active}" Path="Rpc.EffectiveRole.SelectedEntity"/>-->
+                        <MultiBinding Converter="{StaticResource MainWindowWeighScaleSelectionConverter}" Mode="OneWay">
+                            <MultiBinding.ConverterParameter>
+                                <sys:Boolean>True</sys:Boolean>
+                            </MultiBinding.ConverterParameter>
+                            <Binding Path="" />
+                            <Binding Source="{x:Static src:App.Active}" Path="WeighingScale.ActiveWeighingScale"/>
                         </MultiBinding>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Header" Value="{Binding Converter={StaticResource MainWindowEntityRolesMapHeaderConverter}}"/>
+                <Setter Property="Header" Value="选用"/>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="WeighScaleUnselectStyle" TargetType="{x:Type MenuItem}">
+            <Style.Setters>
+                <EventSetter Event="Click" Handler="MenuItem_UnselectWeighScale_Click"></EventSetter>
+                <Setter Property="Visibility">
+                    <Setter.Value>
+                        <MultiBinding Converter="{StaticResource MainWindowWeighScaleSelectionConverter}" Mode="OneWay">
+                            <MultiBinding.ConverterParameter>
+                                <sys:Boolean>False</sys:Boolean>
+                            </MultiBinding.ConverterParameter>
+                            <Binding Path="" />
+                            <Binding Source="{x:Static src:App.Active}" Path="WeighingScale.ActiveWeighingScale"/>
+                        </MultiBinding>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Header" Value="停用"/>
+            </Style.Setters>
+        </Style>
+
+        <CompositeCollection x:Key="WeighScaleSubMenu" x:Shared="false">
+            <MenuItem Style="{StaticResource WeighScaleSelectStyle}" />
+            <MenuItem Style="{StaticResource WeighScaleUnselectStyle}" />
+            <MenuItem Header="设定..." Click="MenuItem_WeighScaleSettings_Click"/>
+        </CompositeCollection>
+
+        <Style x:Key="WeighScaleSelectionRootStyle" TargetType="{x:Type MenuItem}">
+            <Style.Setters>
+                <Setter Property="ItemsSource" Value="{StaticResource WeighScaleSubMenu}" />
+                <Setter Property="Header" Value="{Binding ScaleName}"/>
+                <Setter Property="ItemContainerStyle" Value="{x:Null}" />
+                <Setter Property="IsChecked" Value="True">
+                    
+                </Setter>
             </Style.Setters>
         </Style>
     </Window.Resources>
@@ -65,55 +112,14 @@
     </Window.InputBindings>
     <DockPanel>
         <Menu Name="menu1" IsMainMenu="True" VerticalAlignment="Top" DockPanel.Dock="Top" KeyboardNavigation.TabNavigation="None">
-            <MenuItem Header="文件(_F)">
-            </MenuItem>
-            <MenuItem Header="转到(_G)">
-                <MenuItem Header="回主画面(_H)" InputGestureText="F12" Command="src:MainScreen.BrowseHomepage" />
-                <Separator />
-                <MenuItem Header="开新页面(_T)" InputGestureText="Ctrl+T" Command="src:MainScreen.NewTab" />
-                <MenuItem Header="关闭页面(_C)"  InputGestureText="Ctrl+W" Command="src:MainScreen.CloseTab" />
-            </MenuItem>
-            <MenuItem Header="切换地点(_E)"
-                      Name="menuEffectiveRole"
-                      IsEnabled="{Binding Source={x:Static src:App.Active}, Path=Rpc.EffectiveRole.IsLoading, Converter={StaticResource BooleanNotConverter}}">
-                <MenuItem Header="总部(_H)" ItemsSource="{Binding Source={x:Static src:App.Active}, Path=Rpc.EffectiveRole.HeadquarterRolesMap}"
-                          ItemContainerStyle="{StaticResource EffectiveRoleStyle}">
-                </MenuItem>
-                <MenuItem Header="站点(_S)" ItemsSource="{Binding Source={x:Static src:App.Active}, Path=Rpc.EffectiveRole.StationRolesMap}"
-                          ItemContainerStyle="{StaticResource EffectiveRoleStyle}">
-                </MenuItem>
-                <MenuItem Header="客户(_C)" ItemsSource="{Binding Source={x:Static src:App.Active}, Path=Rpc.EffectiveRole.ClientRolesMap}"
-                          ItemContainerStyle="{StaticResource EffectiveRoleStyle}">
-                </MenuItem>
-            </MenuItem>            
+           
         </Menu>
         <ItemsControl DockPanel.Dock="Top" Style="{StaticResource NotificationBar}" Padding="3" Focusable="False">
-            <TextBlock TextWrapping="Wrap" Margin="2">
-                <TextBlock.Visibility>                    
-                    <MultiBinding Converter="{StaticResource BooleanNotAllVisibilityConverter}">
-                        <Binding Path="Printing.Label.IsEnable" Source="{x:Static src:App.Active}"/>
-                        <Binding Path="Printing.BigLabel.IsEnable" Source="{x:Static src:App.Active}"/>
-                    </MultiBinding>
-                </TextBlock.Visibility>
-                <InlineUIContainer BaselineAlignment="Center"><Image Source="pack://application:,,,/Vitalink;component/Resources/warning.png" Height="16" Width="16" /></InlineUIContainer>
-                条形码打印机在停用状态</TextBlock>
-            <TextBlock Visibility="{Binding Printing.Report.IsEnable, Source={x:Static src:App.Active}, Converter={StaticResource BooleanNotVisibilityConverter}}" TextWrapping="Wrap" Margin="2">
-                <InlineUIContainer BaselineAlignment="Center"><Image Source="pack://application:,,,/Vitalink;component/Resources/warning.png" Height="16" Width="16" /></InlineUIContainer>
-                报表打印机在停用状态</TextBlock>
-            <TextBlock Visibility="{Binding Rpc.IsCredentialOverride, Source={x:Static src:App.Active}, Converter={StaticResource BooleanNotVisibilityConverter}}" TextWrapping="Wrap" Margin="2">
-                <InlineUIContainer BaselineAlignment="Center"><Image Source="pack://application:,,,/Vitalink;component/Resources/ok.png" Height="16" Width="16" /></InlineUIContainer>
-                操作身份: <TextBlock Text="{Binding Rpc.CurrentCredentialEntity, Source={x:Static src:App.Active}, Converter={StaticResource EntityNameConverter}}" />
-                <TextBlock Text="    "></TextBlock>
-                当前地点: <TextBlock Text="{Binding Rpc.EffectiveRole.SelectedEntity,Source={x:Static src:App.Active}, Converter={StaticResource EntityNameConverter}}" />
-            </TextBlock>
-            <TextBlock Visibility="{Binding Rpc.IsCredentialOverride, Source={x:Static src:App.Active}, Converter={StaticResource BooleanVisibilityConverter}}" TextWrapping="Wrap" Margin="2">
-                <InlineUIContainer BaselineAlignment="Center"><Image Source="pack://application:,,,/Vitalink;component/Resources/ok.png" Height="16" Width="16" /></InlineUIContainer>
-                正在使用之替代身份: <TextBlock Text="{Binding Rpc.CurrentCredentialEntity, Source={x:Static src:App.Active}, Converter={StaticResource EntityNameConverter}}" /></TextBlock>
-            <TextBlock Visibility="{Binding ExportJobsCount, Converter={StaticResource IsZeroNotVisibilityConverter}}" TextWrapping="Wrap" Margin="2">
-                <InlineUIContainer BaselineAlignment="Center"><Image Source="pack://application:,,,/Vitalink;component/Resources/report_disk.png" Height="16" Width="16" /></InlineUIContainer>
-                正在导出 <TextBlock Text="{Binding ExportJobsCount}"/> 张报表</TextBlock>
+            <TextBlock  TextWrapping="Wrap" Margin="2">
+                <InlineUIContainer BaselineAlignment="Center"></InlineUIContainer>
+                正在导出 <TextBlock Text="3"/> 张报表</TextBlock>
         </ItemsControl>
-
+        
         <my:BrowserTabControl Margin="0,2,0,0" x:Name="tabPageControl" Focusable="False">
             <my:BrowserTabControl.ContentTemplate>
                 <DataTemplate>

@@ -25,12 +25,12 @@ namespace GLTWarter
         {
             //Xceed.Wpf.DataGrid.Licenser.LicenseKey = "DGP31-M42XN-22M34-CWJA";
 
-            this.MainWindow = App.Active.MainScreen = new MainScreen();
+            this.MainWindow = new MainScreen();
             //if (new LoginScreen(App.Active.Rpc).ShowDialog() == false)
             //{
             //    Application.Current.Shutdown();
             //}
-            App.Active.MainScreen.Show();
+           this.MainWindow.Show();
         }
     }
 }

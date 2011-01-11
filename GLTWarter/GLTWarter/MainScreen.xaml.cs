@@ -22,13 +22,13 @@ namespace GLTWarter
 {
     public partial class MainScreen : Window
     {
-        const string WelcomePageUri = "pack://application:,,,/Vitalink;component/Pages/Welcome.xaml";
+        const string WelcomePageUri = "pack://application:,,,/GLTWarter;component/Pages/Welcome.xaml";
 
         private TabPages tabPages = new TabPages();
-
+        
         public static readonly DependencyProperty ExportJobsCountProperty = DependencyProperty.Register(
             "ExportJobsCount", typeof(int), typeof(MainScreen), new FrameworkPropertyMetadata(0));
-
+        
         public static RoutedUICommand BrowseHomepage = new RoutedUICommand();
         public static RoutedUICommand NewTab = new RoutedUICommand();
         public static RoutedUICommand CloseTab = new RoutedUICommand();
@@ -50,7 +50,7 @@ namespace GLTWarter
 
         public int ExportJobsCount
         {
-            get { return (int)this.GetValue(ExportJobsCountProperty); }
+            get { return (int) this.GetValue(ExportJobsCountProperty); }
             set { this.SetValue(ExportJobsCountProperty, value); }
         }
 
@@ -63,7 +63,7 @@ namespace GLTWarter
             tabPages.Add(new TabPage(WelcomePageUri));
             tabPageControl.ItemsSource = tabPages;
 
-            this.AddHandler(BrowserTabItem.CloseTabEvent, new RoutedEventHandler(this.CloseTab_Event));
+            this.AddHandler(BrowserTabItem.CloseTabEvent, new RoutedEventHandler(this.CloseTab_Event)); 
         }
 
         public void ExportJob_ReportDoWork()
@@ -88,53 +88,88 @@ namespace GLTWarter
             as TabPage);
         }
 
+        private void MenuItem_SelectWeighScale_Click(object sender, RoutedEventArgs e)
+        {
+            //if (Pages.Package.Checkin.PackageScan.ischeckInOnce)
+            //{
+            //    MessageBox.Show(App.Active.MainWindow, Resource.validationCheckInOnceCancel, this.Title, MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
+            //else
+            //{
+            //    MenuItem m = ((MenuItem)e.Source);
+            //    App.Active.WeighingScale.ActiveWeighingScale = m.DataContext as Weighing.IWeighingScale;
+            //}
+        }
 
-       
+        private void MenuItem_UnselectWeighScale_Click(object sender, RoutedEventArgs e)
+        {
+           // App.Active.WeighingScale.ActiveWeighingScale = null;
+        }
 
+        private void MenuItem_WeighScaleSettings_Click(object sender, RoutedEventArgs e)
+        {
+            //MenuItem m = ((MenuItem)e.Source);
+            //(m.DataContext as Weighing.IWeighingScale).ShowSettingsDialog();
+        }
         
+        private void MenuItem_EffectiveRole_Click(object sender, RoutedEventArgs e)
+        {
+            //MenuItem m = ((MenuItem)e.Source);
+            //App.Active.Rpc.EffectiveRole.SelectedEntity = m.Tag as Data.Entity;
+        }
 
-        //internal Pages.DetailsBase NavigateEntityDetails(object obj)
-        //{
-        //    Pages.DetailsBase page = null;
-        //    if (obj is Data.Entity)
-        //    {
-        //        page = new Pages.Entity.Details((Data.Entity)obj);
-        //    }
-        //    else if (obj is Data.Shipment)
-        //    {
-        //        page = new Pages.Shipment.Entity.Details((Data.Shipment)obj);
-        //    }
-        //    else if (obj is Data.Trx)
-        //    {
-        //        page = new Pages.Bill.TrxDetails((Data.Trx)obj);
-        //    }
-        //    else if (obj is Data.Bill)
-        //    {
-        //        page = new Pages.Bill.Details((Data.Bill)obj);
-        //    }
-        //    else if (obj is Data.Invoice)
-        //    {
-        //        page = new Pages.Invoice.Details((Data.Invoice)obj);
-        //    }
-        //    else if (obj is Data.EventLog)
-        //    {
-        //        page = new Pages.Shipment.Events.Details((Data.EventLog)obj);
-        //    }
-        //    else if (obj is Data.Route)
-        //    {
-        //        page = new Pages.Route.Details((Data.Route)obj);
-        //    }
-        //    else if (obj is Data.Complaint)
-        //    {
-        //        page = new Pages.Complaint.Details((Data.Complaint)obj);
-        //    }
-        //    if (page != null)
-        //    {
-        //        this.NavigateActive(page);
-        //    }
-        //    return page;
-        //}
+        private void MenuItem_LabelPrinterSetting_Click(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+            //    App.Active.Printing.Label.Setup();
+            //}
+            //catch (System.Printing.PrintSystemException ex)
+            //{
+            //    MessageBox.Show(App.Active.MainWindow, ex.ToString(), this.Title);
+            //}
+        }
 
+        private void MenuItem_LabelPrinterTest_Click(object sender, RoutedEventArgs e)
+        {
+            //App.Active.Printing.Label.Print(PrintTemplates.LabelDemo, null);
+        }
+
+        private void MenuItem_BigLabelPrinterSetting_Click(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+            //    App.Active.Printing.BigLabel.Setup();
+            //}
+            //catch (System.Printing.PrintSystemException ex)
+            //{
+            //    MessageBox.Show(App.Active.MainWindow, ex.ToString(), this.Title);
+            //}
+        }
+
+        private void MenuItem_BigLabelPrinterTest_Click(object sender, RoutedEventArgs e)
+        {
+            //App.Active.Printing.BigLabel.Print(PrintTemplates.BigLabelDemo, null);
+        }
+
+        private void MenuItem_ReportPrinterSetting_Click(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+            //    App.Active.Printing.Report.Setup();
+            //}
+            //catch (System.Printing.PrintSystemException ex)
+            //{
+            //    MessageBox.Show(App.Active.MainWindow, ex.ToString(), this.Title);
+            //}
+        }
+
+        private void MenuItem_ReportPrinterTest_Click(object sender, RoutedEventArgs e)
+        {
+            //App.Active.Printing.Report.Print(PrintTemplates.ReportDemo, null);
+        }
+        
+        
         internal void NavigateActive(Page page)
         {
             if (tabPageControl.SelectedContent as TabPage != null)
@@ -144,6 +179,26 @@ namespace GLTWarter
                     ((tabPageControl.SelectedContent as TabPage).Page as Frame).Navigate(page);
                 }
             }
+        }
+        
+        private void MenuItem_CredentialOverride_Click(object sender, RoutedEventArgs e)
+        {
+            //new LoginScreen(App.Active.Rpc, Data.LoginMode.Override).ShowDialog();
+        }
+
+        private void MenuItem_CredentialRestore_Click(object sender, RoutedEventArgs e)
+        {
+            //App.Active.Rpc.RemoveCredential();
+        }
+
+        private void MenuItem_ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+           // new ChangePasswordScreen().ShowDialog();
+        }
+
+        private void MenuItem_About_Click(object sender, RoutedEventArgs e)
+        {
+            //new AboutScreen().ShowDialog();
         }
 
 
@@ -186,17 +241,15 @@ namespace GLTWarter
             if (name == "Last")
             {
                 this.tabPageControl.SelectedIndex = this.tabPageControl.Items.Count - 1;
-            }
-            else if (name == "Next")
+            } else if (name == "Next")
             {
                 if (this.tabPageControl.SelectedIndex + 1 < this.tabPageControl.Items.Count)
                     this.tabPageControl.SelectedIndex = this.tabPageControl.SelectedIndex + 1;
-            }
-            else if (name == "Previous")
+            } else if (name == "Previous")
             {
                 if (this.tabPageControl.SelectedIndex > 0)
                     this.tabPageControl.SelectedIndex = this.tabPageControl.SelectedIndex - 1;
-            }
+            } 
             else
             {
                 int index = int.Parse(name);
@@ -227,12 +280,12 @@ namespace GLTWarter
 
         private void QuickSearch_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            Pages.Shipment.Entity.SearchDataById data = new Pages.Shipment.Entity.SearchDataById();
-            data.ShipmentId = e.Parameter as string;
+            //Pages.Shipment.Entity.SearchDataById data = new Pages.Shipment.Entity.SearchDataById();            
+            //data.ShipmentId = e.Parameter as string;
 
-            this.NavigateActive(
-                new Pages.Search(new Pages.Shipment.Entity.SearchById(data), new Pages.Shipment.Entity.ResultById(), new Pages.Shipment.Entity.ActionSingleGo())
-            );
+            //this.NavigateActive(
+            //    new Pages.Search(new Pages.Shipment.Entity.SearchById(data), new Pages.Shipment.Entity.ResultById(), new Pages.Shipment.Entity.ActionSingleGo())
+            //);
         }
 
         private void Help_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -259,8 +312,62 @@ namespace GLTWarter
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-           
+            //if (App.Active.Rpc.EffectiveRole.SelectedEntity != null)
+            //{
+            //    return App.Active.Rpc.EffectiveRole.SelectedEntity == values[0] as Data.Entity;
+            //}
             return false;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class MainWindowWeighScaleSelectionConverter : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            bool selected =false;
+            //if (App.Active.WeighingScale.ActiveWeighingScale != null)
+            //{
+            //    selected = App.Active.WeighingScale.ActiveWeighingScale == values[0] as Weighing.IWeighingScale;
+            //}
+            //else
+            //{
+            //    selected = false;
+            //}
+            if ((bool)parameter)
+            {
+                return !selected ? Visibility.Visible : Visibility.Collapsed;
+            }
+            else
+            {
+                return selected ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class MainWindowWeighScaleCheckConverter : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            bool selected =false;
+            //if (App.Active.WeighingScale.ActiveWeighingScale != null)
+            //{
+            //    selected = App.Active.WeighingScale.ActiveWeighingScale == values[0] as Weighing.IWeighingScale;
+            //}
+            //else
+            //{
+            //    selected = false;
+            //}
+            return selected;
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
@@ -278,8 +385,8 @@ namespace GLTWarter
             //    System.Globalization.CultureInfo.CurrentCulture,
             //    Resource.converterEntityRolesMap,
             //    Data.EntityNameConverter.Convert(rm.Effective)
-            return null;
             //);
+            return "";
         }
 
         public object ConvertBack(object value, Type targetTypes, object parameter, System.Globalization.CultureInfo culture)
