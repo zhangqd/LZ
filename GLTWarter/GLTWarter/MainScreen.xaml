@@ -12,63 +12,12 @@
         <src:MainWindowWeighScaleSelectionConverter x:Key="MainWindowWeighScaleSelectionConverter"/>
         <src:MainWindowWeighScaleCheckConverter x:Key="MainWindowWeighScaleCheckConverter"/>
         <Style x:Key="EffectiveRoleStyle" TargetType="{x:Type MenuItem}">
-            <Style.Setters>
-                <EventSetter Event="Click" Handler="MenuItem_EffectiveRole_Click"></EventSetter>                
+            <Style.Setters>                             
                 <Setter Property="Header" Value="{Binding Converter={StaticResource MainWindowEntityRolesMapHeaderConverter}}"/>
             </Style.Setters>
         </Style>
 
-        <Style x:Key="WeighScaleSelectStyle" TargetType="{x:Type MenuItem}">
-            <Style.Setters>
-                <EventSetter Event="Click" Handler="MenuItem_SelectWeighScale_Click"></EventSetter>
-                <Setter Property="Visibility">
-                    <Setter.Value>
-                        <MultiBinding Converter="{StaticResource MainWindowWeighScaleSelectionConverter}" Mode="OneWay">
-                            <MultiBinding.ConverterParameter>
-                                <sys:Boolean>True</sys:Boolean>
-                            </MultiBinding.ConverterParameter>
-                            <Binding Path="" />
-                            <Binding Source="{x:Static src:App.Active}" Path="WeighingScale.ActiveWeighingScale"/>
-                        </MultiBinding>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="Header" Value="选用"/>
-            </Style.Setters>
-        </Style>
-        <Style x:Key="WeighScaleUnselectStyle" TargetType="{x:Type MenuItem}">
-            <Style.Setters>
-                <EventSetter Event="Click" Handler="MenuItem_UnselectWeighScale_Click"></EventSetter>
-                <Setter Property="Visibility">
-                    <Setter.Value>
-                        <MultiBinding Converter="{StaticResource MainWindowWeighScaleSelectionConverter}" Mode="OneWay">
-                            <MultiBinding.ConverterParameter>
-                                <sys:Boolean>False</sys:Boolean>
-                            </MultiBinding.ConverterParameter>
-                            <Binding Path="" />
-                            <Binding Source="{x:Static src:App.Active}" Path="WeighingScale.ActiveWeighingScale"/>
-                        </MultiBinding>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="Header" Value="停用"/>
-            </Style.Setters>
-        </Style>
-
-        <CompositeCollection x:Key="WeighScaleSubMenu" x:Shared="false">
-            <MenuItem Style="{StaticResource WeighScaleSelectStyle}" />
-            <MenuItem Style="{StaticResource WeighScaleUnselectStyle}" />
-            <MenuItem Header="设定..." Click="MenuItem_WeighScaleSettings_Click"/>
-        </CompositeCollection>
-
-        <Style x:Key="WeighScaleSelectionRootStyle" TargetType="{x:Type MenuItem}">
-            <Style.Setters>
-                <Setter Property="ItemsSource" Value="{StaticResource WeighScaleSubMenu}" />
-                <Setter Property="Header" Value="{Binding ScaleName}"/>
-                <Setter Property="ItemContainerStyle" Value="{x:Null}" />
-                <Setter Property="IsChecked" Value="True">
-                    
-                </Setter>
-            </Style.Setters>
-        </Style>
+      
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="src:MainScreen.BrowseHomepage" Executed="BrowseHomepage_Executed"/>

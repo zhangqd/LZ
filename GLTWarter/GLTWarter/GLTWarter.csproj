@@ -114,7 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\BrowserTab.cs" />
+    <Compile Include="Controls\ConstrainingStackPanel.cs" />
     <Compile Include="Controls\HintedTextbox.cs" />
+    <Compile Include="Controls\SqueezeTabPanel.cs" />
     <Compile Include="Pages\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
