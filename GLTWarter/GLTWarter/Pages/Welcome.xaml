@@ -4,7 +4,7 @@
     xmlns:views="clr-namespace:GLTWarter.Views"
     xmlns:diagnostics="clr-namespace:System.Diagnostics;assembly=WindowsBase"
     xmlns:src="clr-namespace:GLTWarter"
-    Title="主画面">
+    Title="主画面icy">
     <Grid>
 
     </Grid>
