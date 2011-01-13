@@ -31,7 +31,7 @@ namespace GLTWarter
         public static RoutedUICommand CloseTab = new RoutedUICommand();
         public static RoutedUICommand FocusQuickSearchBox = new RoutedUICommand();
         public static RoutedUICommand QuickSearch = new RoutedUICommand();
-        public static RoutedUICommand Help = new RoutedUICommand();
+        public static RoutedUICommand Help = new RoutedUICommand(); 
 
         public static RoutedUICommand Tab1 = new RoutedUICommand("Tab 1", "1", typeof(MainScreen));
         public static RoutedUICommand Tab2 = new RoutedUICommand("Tab 2", "2", typeof(MainScreen));
