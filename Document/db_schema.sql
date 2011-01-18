@@ -34,7 +34,6 @@ CREATE TABLE `entities` (
   `address_family` text COLLATE utf8_unicode_ci,
   `address_child` text COLLATE utf8_unicode_ci,
   `comment` text COLLATE utf8_unicode_ci,
-  `store_log` int(11) NOT NULL,
   `deposit` decimal(10,2) NOT NULL DEFAULT '0.00',
   `pay_type` int(11) NOT NULL,
   `route_station` int(11) DEFAULT NULL COMMENT '付款类型\n预付，后附，及时付款',
@@ -328,7 +327,7 @@ DROP TABLE IF EXISTS `stores`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stores` (
   `store_id` int(11) NOT NULL AUTO_INCREMENT,
-  `store_log` int(11) NOT NULL,
+  `entity_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `product_count` decimal(8,0) DEFAULT NULL,
   `bound` int(11) DEFAULT NULL,
