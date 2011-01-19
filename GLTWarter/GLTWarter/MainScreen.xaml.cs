@@ -50,6 +50,11 @@ namespace GLTWarter
             InitializeComponent();
             this.DataContext = this;
 
+            Service1.Service1Client client = new GLTWarter.Service1.Service1Client();
+            client.ClientCredentials.UserName.UserName = "ejiyuan";
+            client.ClientCredentials.UserName.Password = "123456";
+            int i = client.add(1, 2);
+
             tabPages.Add(new TabPage(WelcomePageUri));
             tabPageControl.ItemsSource = tabPages;
 

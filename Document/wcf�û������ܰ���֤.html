@@ -1,0 +1,926 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>WCF的用户名密码认证 - 天道酬勤 - 博客园</title>
+<meta name="keywords" content="WCF,WCF的用户名密码认证" />
+<link type="text/css" rel="stylesheet" href="http://www.cnblogs.com/css/common.css"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="http://www.cnblogs.com/Skins/KJC/style.css"/>
+<link type="text/css" rel="stylesheet" href="http://www.cnblogs.com/css/common2.css"/>
+<link type="text/css" rel="stylesheet" href="http://common.cnblogs.com/css/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="http://common.cnblogs.com/css/shThemeDefault.css"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/SunYu/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/SunYu/rsd.xml"/> 
+<script src="http://common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script src="/script/common.js" type="text/javascript"></script>
+<script src="http://common.cnblogs.com/script/jquery.json-2.2.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <form name="Form1" method="post" action="1782013.html" id="Form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="
+__VIEWSTATE" value="" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+        
+<table class="Framework" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td colspan="3">
+			
+<div id="top">
+<table cellpadding="10" cellspacing="0">
+	<tr>
+		<td nowrap>
+			<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/SunYu/">天道酬勤</a></h1>
+			博观而约取，厚积而薄发！
+		</td>
+	</tr>
+</table>
+</div>
+<div id="sub">
+	<div id="sub-right">
+<div class="BlogStats">posts - 298, comments - 37, trackbacks - 0, articles - 0</div></div>
+	
+&nbsp;
+<a id="Header1_MyLinks1_HomeLink" href="http://www.cnblogs.com/">博客园</a>&nbsp;::
+<a id="Header1_MyLinks1_MyHomeLink" href="http://www.cnblogs.com/SunYu/">首页</a>&nbsp;::
+<a id="Header1_MyLinks1_NewPostLink" rel="nofollow" href="http://www.cnblogs.com/SunYu/admin/EditPosts.aspx?opt=1">新随笔</a>&nbsp;::
+<a id="Header1_MyLinks1_ContactLink" accesskey="9" rel="nofollow" href="http://space.cnblogs.com/msg/send/Happy+Coding">联系</a>&nbsp;::
+<a id="Header1_MyLinks1_Syndication" href="http://www.cnblogs.com/SunYu/rss">订阅</a>
+<a id="Header1_MyLinks1_XMLLink" class="XMLLink" href="http://www.cnblogs.com/SunYu/rss"><img src="http://www.cnblogs.com/images/xml.gif" alt="订阅" style="border-width:0px;" /></a>&nbsp;::
+<a id="Header1_MyLinks1_Admin" rel="nofollow" href="http://www.cnblogs.com/SunYu/admin/EditPosts.aspx">管理</a>
+
+</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="LeftCell">
+			<div id="leftmenu">
+			</div>
+		</td>
+		<td class="MainCell">
+			<div id="main">
+				
+					
+	<div class="post">
+		<div class="posthead">
+			<h2>
+				<a id="ctl01_TitleUrl" class="singleposttitle" href="http://www.cnblogs.com/SunYu/archive/2010/07/21/1782013.html">WCF的用户名密码认证</a>
+			</h2>
+ 			Posted on 2010-07-21 11:05 <a href='http://www.cnblogs.com/SunYu/'>Happy Coding</a> 阅读(449) <a href='#commentform'>评论(2)</a>  <a href ="#" onclick="open_link('http://www.cnblogs.com/SunYu/admin/EditPosts.aspx?postid=1782013')" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(1782013);return false;">收藏</a> 所属分类: <a href='http://www.cnblogs.com/SunYu/category/243207.html'>WCF</a>
+			<img src ="http://www.cnblogs.com/SunYu/aggbug/1782013.html?type=1&webview=1" width="1px" height="1px" alt=""/>
+			
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+rdf:about="http://www.cnblogs.com/SunYu/archive/2010/07/21/1782013.html"
+dc:identifier="http://www.cnblogs.com/SunYu/archive/2010/07/21/1782013.html"
+dc:title=""
+trackback:ping="http://www.cnblogs.com/SunYu/services/trackbacks/1782013.aspx" />
+</rdf:RDF>
+-->
+
+		</div>
+		<div class="postbody"><p>以前我们用WebService做分布式系统的时候，认证是个麻烦的问题，通常的做法是继承一个SoapHeader，把用户名和密码放到里面，每调用一个方法都要把用户名和密码传递给服务器端来验证 ，效率相当低，代码编写相当的麻烦，而且还不安全！ </p>
+<p>WCF支持多种认证技术，例如Windowns认证、X509证书、Issued Tokens、用户名密码认证等，在跨Windows域分布的系统中，用户名密码认证还是比较常用的，要实现用户名密码认证，就必须需要X509证书，为什么呢？因为我们需要X509证书这种非对称密钥技术来实现WCF在Message传递过程中的加密和解密，要不然用户名和密码就得在网络上明文传递！详细说明就是客户端把用户名和密码用公钥加密后传递给服务器端，服务器端再用自己的私钥来解密，然后传递给相应的验证程序来实现身份验证。 </p>
+<p>当然，做个测试程序就没有必要去申请一个X509数字签名证书了，微软提供了一个makecert.exe的命令专门用来生成测试使用的X509证书的，那我们就来建立一个测试用的证书，在cmd下输入以下命令： </p>
+<p>makecert.exe -sr LocalMachine -ss My -a sha1 -n CN=MyServerCert -sky exchange &ndash;pe </p>
+<p>这个命令的意思就是创建一个测试的X509证书，这个证书放在存储位置为'Localmachine'的'My'这个文件夹下，证书主题名字叫'MyServerCert'，需要更多关于makecert命令的信息请参考MSDN。 </p>
+<p>证书建立好了，我们就可以编写代码了，在VS2008下建立一个解决方案并在上面建立两个Web项目，一个是'Asp.net Web 应用程序'（客户端），一个是'WCF服务应用程序'（服务器端），我们先来编写服务器端代码，首先我们要编写自己的用户名密码认证逻辑，先要在WCF项目上添加引用'System.IdentityModel'然后我们建立一个新的类文件并继承自'System.IdentityModel.Selectors.UserNamePasswordValidator'，然后我们重写里面的'Validate'方法来实现用户名密码认证逻辑。代码如下； </p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('fb2b1244-955e-4f8c-ab53-a247b54a3948')"><img src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" class="code_img_closed" id="code_img_closed_fb2b1244-955e-4f8c-ab53-a247b54a3948" /><img src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" class="code_img_opened" id="code_img_opened_fb2b1244-955e-4f8c-ab53-a247b54a3948" onclick="cnblogs_code_hide('fb2b1244-955e-4f8c-ab53-a247b54a3948',event)" style="display: none;" /><span class="cnblogs_code_collapse">代码</span>
+<div id="cnblogs_code_open_fb2b1244-955e-4f8c-ab53-a247b54a3948" class="cnblogs_code_hide">
+<pre><div><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.IdentityModel.Selectors;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.IdentityModel.Tokens;<br /><br /> <br /><br /></span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> ServerWcfService.CustomValidators<br /><br />{<br /><br /></span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> MyCustomValidator : UserNamePasswordValidator<br /><br />{<br /><br /></span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;summary&gt;</span><span style="color: #008000;"><br /><br /></span><span style="color: #808080;">///</span><span style="color: #008000;"> Validates the user name and password combination.<br /><br /></span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;/summary&gt;</span><span style="color: #008000;"><br /><br /></span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;param name="userName"&gt;</span><span style="color: #008000;">The user name.</span><span style="color: #808080;">&lt;/param&gt;</span><span style="color: #008000;"><br /><br /></span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;param name="password"&gt;</span><span style="color: #008000;">The password.</span><span style="color: #808080;">&lt;/param&gt;</span><span style="color: #808080;"><br /></span><span style="color: #000000;"><br /></span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">override</span><span style="color: #000000;"> </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> Validate(</span><span style="color: #0000ff;">string</span><span style="color: #000000;"> userName, </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> password)<br /><br />{<br /><br /></span><span style="color: #008000;">//</span><span style="color: #008000;"> validate arguments</span><span style="color: #008000;"><br /></span><span style="color: #000000;"><br /></span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (</span><span style="color: #0000ff;">string</span><span style="color: #000000;">.IsNullOrEmpty(userName))<br /><br /></span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> ArgumentNullException(</span><span style="color: #800000;">"</span><span style="color: #800000;">userName</span><span style="color: #800000;">"</span><span style="color: #000000;">);<br /><br /></span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (</span><span style="color: #0000ff;">string</span><span style="color: #000000;">.IsNullOrEmpty(password))<br /><br /></span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> ArgumentNullException(</span><span style="color: #800000;">"</span><span style="color: #800000;">password</span><span style="color: #800000;">"</span><span style="color: #000000;">);<br /><br /> <br /><br /></span><span style="color: #008000;">//</span><span style="color: #008000;"> check if the user is not xiaozhuang</span><span style="color: #008000;"><br /></span><span style="color: #000000;"><br /></span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (userName </span><span style="color: #000000;">!=</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">xiaozhuang</span><span style="color: #800000;">"</span><span style="color: #000000;"> </span><span style="color: #000000;">||</span><span style="color: #000000;"> password </span><span style="color: #000000;">!=</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">123456</span><span style="color: #800000;">"</span><span style="color: #000000;">)<br /><br /></span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> SecurityTokenException(</span><span style="color: #800000;">"</span><span style="color: #800000;">用户名或者密码错误！</span><span style="color: #800000;">"</span><span style="color: #000000;">);<br /><br />}<br /><br />}<br /><br />} </span></div></pre>
+</div>
+</div>
+<p>上面只是一个简单的验证，实际应用中用户名和密码一般都保存在数据库中，如果验证不通过就抛出一个'SecurityTokenException'类型的异常；下一步我们需要配置一下服务端的webConfig文件，我的WebConfig文件Servicemodel配置节如下：</p>
+<p>&nbsp;</p>
+<p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('69c3d247-a26b-41ee-a079-5e4db60a2cc0')"><img src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" class="code_img_closed" id="code_img_closed_69c3d247-a26b-41ee-a079-5e4db60a2cc0" /><img src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" class="code_img_opened" id="code_img_opened_69c3d247-a26b-41ee-a079-5e4db60a2cc0" onclick="cnblogs_code_hide('69c3d247-a26b-41ee-a079-5e4db60a2cc0',event)" style="display: none;" /><span class="cnblogs_code_collapse">代码</span>
+<div id="cnblogs_code_open_69c3d247-a26b-41ee-a079-5e4db60a2cc0" class="cnblogs_code_hide">
+<pre><div><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">system.serviceModel</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />        </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bindings</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />            </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">wsHttpBinding</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">binding </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="mySecureBinding"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                    </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">security </span><span style="color: #ff0000;">mode</span><span style="color: #0000ff;">="Message"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                        </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">message </span><span style="color: #ff0000;">clientCredentialType</span><span style="color: #0000ff;">="UserName"</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;"><br /><br />                    </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">security</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">binding</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />            </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">wsHttpBinding</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />        </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bindings</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />        </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">services</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />            </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">service </span><span style="color: #ff0000;">behaviorConfiguration</span><span style="color: #0000ff;">="ServerWcfService.Services.MySimpleServiceBehavior"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="ServerWcfService.Services.MySimpleService"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">endpoint </span><span style="color: #ff0000;">address</span><span style="color: #0000ff;">=""</span><span style="color: #ff0000;"> binding</span><span style="color: #0000ff;">="wsHttpBinding"</span><span style="color: #ff0000;"> contract</span><span style="color: #0000ff;">="ServerWcfService.ServiceContracts.IMySimpleService"</span><span style="color: #ff0000;"> bindingConfiguration</span><span style="color: #0000ff;">="mySecureBinding"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                    </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">identity</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                        </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dns </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="MyServerCert"</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;"><br /><br />                    </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">identity</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">endpoint</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">endpoint </span><span style="color: #ff0000;">address</span><span style="color: #0000ff;">="mex"</span><span style="color: #ff0000;"> binding</span><span style="color: #0000ff;">="mexHttpBinding"</span><span style="color: #ff0000;"> contract</span><span style="color: #0000ff;">="IMetadataExchange"</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;"><br /><br />            </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">service</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />        </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">services</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />        </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">behaviors</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />            </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">serviceBehaviors</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">behavior </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="ServerWcfService.Services.MySimpleServiceBehavior"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                    </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">serviceMetadata </span><span style="color: #ff0000;">httpGetEnabled</span><span style="color: #0000ff;">="true"</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;"><br /><br />                    </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">serviceDebug </span><span style="color: #ff0000;">includeExceptionDetailInFaults</span><span style="color: #0000ff;">="false"</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;"><br /><br />                    </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">serviceCredentials</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                        </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">serviceCertificate </span><span style="color: #ff0000;">findValue</span><span style="color: #0000ff;">="MyServerCert"</span><span style="color: #ff0000;"> x509FindType</span><span style="color: #0000ff;">="FindBySubjectName"</span><span style="color: #ff0000;"> storeLocation</span><span style="color: #0000ff;">="LocalMachine"</span><span style="color: #ff0000;"> storeName</span><span style="color: #0000ff;">="My"</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;"><br /><br />                        </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">userNameAuthentication </span><span style="color: #ff0000;">userNamePasswordValidationMode</span><span style="color: #0000ff;">="Custom"</span><span style="color: #ff0000;"> customUserNamePasswordValidatorType</span><span style="color: #0000ff;">="ServerWcfService.CustomValidators.MyCustomValidator,ServerWcfService"</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;"><br /><br />                    </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">serviceCredentials</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />                </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">behavior</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />            </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">serviceBehaviors</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />        </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">behaviors</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"><br /><br />    </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">system.serviceModel</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"> </span></div></pre>
+</div>
+</div>
+</p>
+<p>加粗的那些是我加上去的或者在默认上修改了的。Bindings节指定了客户端提供的认证类型为'username'并在endpoint节中指定bianding配置。在dns节中修改原来的localmachine为MyServerCert，当然你也可以修改为别的，这取决于你的证书主题名称是什么。也就是上面命令中的CN=MyServerCert，接下来我们加入在serviceCredentials配置节，并在里面配置两个小节，ServiceCertificate节中指定了我们的X509证书的位置，以用来加解密message，usernameAuthentication节中指定了我们自己的用户名密码验证逻辑。 </p>
+<p>
+Sorry，忘了一件事情，就是写一个测试的服务契约并实现，写法上和无认证的写法一样，如下</p>
+<p><span style="font-size: 9pt; color: blue; font-family: 新宋体;">ServerWcfService.ServiceContracts.IMySimpleService</span>：
+</p>
+<p><span style="font-size: 9pt; font-family: 新宋体;">[<span style="color: #2b91af;">OperationContract</span>] </span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">string</span> PrintMessage(<span style="color: blue;">string</span> message); </span></p>
+<p>这样，服务端的代码编写和配置就完成了，生成项目测试一下，页面显示服务已生成成功。 </p>
+<p>接下来我们开始编写客户端代码，先在客户端引用刚才生成的WCF服务，然后编写客户端代码如下： </p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">protected</span> <span style="color: blue;">void</span> btnPrint_Click(<span style="color: blue;">object</span> sender, <span style="color: #2b91af;">EventArgs</span> e) </span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;">{ </span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;">TestWCFService.<span style="color: #2b91af;">MySimpleServiceClient</span> client = <span style="color: blue;">new</span> ClientWeb.TestWCFService.<span style="color: #2b91af;">MySimpleServiceClient</span>(); </span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;">client.ClientCredentials.UserName.UserName = <span style="color: #a31515;">"xiaozhuang"</span>; </span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;">client.ClientCredentials.UserName.Password = <span style="color: #a31515;">"123456"</span>; </span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;">lbMessage.Text = client.PrintMessage(txtMessage.Text); </span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;">} </span></p>
+<p>&nbsp;</p>
+<p>如果你有一个真正的X509证书，那么现在的代码就可以正常运行了。但是很不幸，我们的证书是测试用的，我们运行的时候出错：'<em>X.509 certificate CN=MyServerCert 链生成失败。所使用的证书具有无法验证的信任链。请替换该证书或更改 certificateValidationMode。已处理证书链，但是在不受信任提供程序信任的根证书中终止</em>'，WCF无法验证测试证书的信任链，那我们要做的就是绕过这个信任验证，具体做法如下： </p>
+<p>先要在Asp.net Web应用程序项目上添加引用'System.IdentityModel'然后我们建立一个新的类文件并继承自'System.IdentityModel.Selectors.X509CertificateValidator'，然后我们重写里面的'Validate'方法来实现我们自己的X509认证逻辑，代码如下： </p>
+<p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('13c2be6b-b2c6-4c87-970f-5f1e8fb4c004')"><img src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" class="code_img_closed" id="code_img_closed_13c2be6b-b2c6-4c87-970f-5f1e8fb4c004" /><img src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" class="code_img_opened" id="code_img_opened_13c2be6b-b2c6-4c87-970f-5f1e8fb4c004" onclick="cnblogs_code_hide('13c2be6b-b2c6-4c87-970f-5f1e8fb4c004',event)" style="display: none;" /><span class="cnblogs_code_collapse">代码</span>
+<div id="cnblogs_code_open_13c2be6b-b2c6-4c87-970f-5f1e8fb4c004" class="cnblogs_code_hide">
+<pre><div><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Configuration;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.IdentityModel.Selectors;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.IdentityModel.Tokens;<br /><br /></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Security.Cryptography.X509Certificates;<br /><br /> <br /><br /> <br /><br /></span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> ClientWeb.CustomX509Validator<br /><br />{<br /><br />    </span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;summary&gt;</span><span style="color: #008000;"><br /><br />    </span><span style="color: #808080;">///</span><span style="color: #008000;"> Implements the validator for X509 certificates.<br /><br />    </span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;/summary&gt;</span><span style="color: #808080;"><br /></span><span style="color: #000000;"><br />    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> MyX509Validator: X509CertificateValidator<br /><br />    {<br /><br />        </span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;summary&gt;</span><span style="color: #008000;"><br /><br />        </span><span style="color: #808080;">///</span><span style="color: #008000;"> Validates a certificate.<br /><br />        </span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;/summary&gt;</span><span style="color: #008000;"><br /><br />        </span><span style="color: #808080;">///</span><span style="color: #008000;"> </span><span style="color: #808080;">&lt;param name="certificate"&gt;</span><span style="color: #008000;">The certificate the validate.</span><span style="color: #808080;">&lt;/param&gt;</span><span style="color: #808080;"><br /></span><span style="color: #000000;"><br />        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">override</span><span style="color: #000000;"> </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> Validate(X509Certificate2 certificate)<br /><br />        {<br /><br />            </span><span style="color: #008000;">//</span><span style="color: #008000;"> validate argument</span><span style="color: #008000;"><br /></span><span style="color: #000000;"><br />            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (certificate </span><span style="color: #000000;">==</span><span style="color: #000000;"> </span><span style="color: #0000ff;">null</span><span style="color: #000000;">)<br /><br />                </span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> ArgumentNullException(</span><span style="color: #800000;">"</span><span style="color: #800000;">X509认证证书为空！</span><span style="color: #800000;">"</span><span style="color: #000000;">);<br /><br /> <br /><br />            </span><span style="color: #008000;">//</span><span style="color: #008000;"> check if the name of the certifcate matches</span><span style="color: #008000;"><br /></span><span style="color: #000000;"><br />            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (certificate.SubjectName.Name </span><span style="color: #000000;">!=</span><span style="color: #000000;"> ConfigurationManager.AppSettings[</span><span style="color: #800000;">"</span><span style="color: #800000;">CertName</span><span style="color: #800000;">"</span><span style="color: #000000;">])<br /><br />                </span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> SecurityTokenValidationException(</span><span style="color: #800000;">"</span><span style="color: #800000;">Certificated was not issued by thrusted issuer</span><span style="color: #800000;">"</span><span style="color: #000000;">);<br /><br />        }<br /><br />    }<br /><br />} </span></div></pre>
+</div>
+</div>
+</p>
+<p>你可以把Validate方法里面留空让所有的认证都通过，也可以自己定义认证逻辑，如果认证失败，就抛出'<span style="font-size: 9pt; color: #2b91af; font-family: 新宋体;">SecurityTokenValidationException</span>'的异常，然后我们配置一下客户端的webconfig让它使用我们自己的X509认证，增加以下的配置节，并在'<span style="font-size: 9pt; color: #a31515; font-family: 新宋体;">endpoint</span>'节中指定<span style="font-size: 9pt; font-family: 新宋体;"><span style="color: red;">behaviorConfiguration</span><span style="color: blue;">=</span>"<span style="color: blue;">myClientBehavior</span>"。</span> </p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&lt;</span><span style="color: #a31515;">behaviors</span><span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style="color: #a31515;">endpointBehaviors</span><span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style="color: #a31515;">behavior</span><span style="color: blue;"> </span><span style="color: red;">name</span><span style="color: blue;">=</span>"<span style="color: blue;">myClientBehavior</span>"<span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style="color: #a31515;">clientCredentials</span><span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style="color: #a31515;">serviceCertificate</span><span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style="color: #a31515;">authentication</span><span style="color: blue;"> </span><span style="color: red;">certificateValidationMode</span><span style="color: blue;">=</span>"<span style="color: blue;">Custom</span>"<span style="color: blue;"> </span><span style="color: red;">customCertificateValidatorType</span><span style="color: blue;">=</span>"<span style="color: blue;">ClientWeb.CustomX509Validator.MyX509Validator,ClientWeb</span>"<span style="color: blue;"> /&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style="color: #a31515;">serviceCertificate</span><span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style="color: #a31515;">clientCredentials</span><span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style="color: #a31515;">behavior</span><span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style="color: #a31515;">endpointBehaviors</span><span style="color: blue;">&gt; </span></span></p>
+<p><span style="font-size: 9pt; font-family: 新宋体;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style="color: #a31515;">behaviors</span><span style="color: blue;">&gt;</span></span> </p>
+<p>&nbsp;</p>
+<p>OK，客户端代码和配置完成，现在你可以运行自己的程序了，运行界面如下：<span style="color: red;"><a href="http://files.cnblogs.com/xiaozhuang/WCFUserNameAuthentication.rar"><span style="color: red;">如果需要源代码在这里下载</span></a></span>. </p>
+<div id="c_jquery_test" style="display:none"></div>
+<script type="text/javascript">
+if ($ != jQuery) {
+	$ = jQuery.noConflict();
+}
+</script>
+<div id="digg_block">
+<div id="author_profile">
+<div class="author_profile_info">
+<a href="http://home.cnblogs.com/u/SunYu/" target="_blank"><img src="http://pic.cnblogs.com/face/u111584.jpg" class="author_avatar" alt=""/></a>
+<div class="author_profile_info">
+<a href="http://home.cnblogs.com/u/SunYu/" target="_blank">Happy Coding</a><br />
+<a href="http://home.cnblogs.com/u/SunYu/followees/">关注 - 1</a><br />
+<a href="http://home.cnblogs.com/u/SunYu/followers/">粉丝 - 12</a><br />
+</div>
+</div>
+<div class="clear"></div>
+
+<div id="author_profile_follow"> <a href="javascript:void(0);" onclick="login();return false;">关注博主</a></div>
+</div>
+<div id="div_digg">										
+	<div class="diggit" onclick="DiggIt(1782013,69767,1)"> 
+		<span class="diggnum" id="digg_count_1782013">0</span>
+	</div>
+	<div class="buryit" onclick="DiggIt(1782013,69767,2)"> 
+		<span class="burynum" id="bury_count_1782013">0</span>
+	</div>
+	<div class="clear"></div>
+	<span style="display:none" id="span_isdigged_1782013">0</span>	
+	<div class="diggword" id="digg_word_1782013">(请您对文章做出评价)</div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev">
+<a href="http://www.cnblogs.com/SunYu/archive/2010/07/19/1780668.html">« </a> 上一篇：<a href="http://www.cnblogs.com/SunYu/archive/2010/07/19/1780668.html" title="发布于2010-07-19 14:30">没人把程序员当回事儿</a><br />
+<a href="http://www.cnblogs.com/SunYu/archive/2010/07/23/1783557.html">» </a> 下一篇：<a href="http://www.cnblogs.com/SunYu/archive/2010/07/23/1783557.html" title="发布于2010-07-23 10:56">Silverlight3(IIS部署)+WCF(Windows服务部署)最佳实践(原创)</a><br />
+</div>
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js"></script>
+<script type="text/javascript">
+    var c_enable_dfp = true;
+    if (navigator.userAgent.indexOf("Chrome/6.0.401.1") > 0) {
+        c_enable_dfp = false;
+    }
+    if (c_enable_dfp) {
+        try {
+            GS_googleAddAdSenseService("ca-pub-4210569241504288");
+            GS_googleEnableAllServices();
+        }
+        catch (e) { }
+    }
+</script>
+<script type="text/javascript">
+    if (c_enable_dfp) {
+        try {
+            GA_googleAddSlot("ca-pub-4210569241504288", "cnblogs_blogpost_body");
+            GA_googleAddSlot("ca-pub-4210569241504288", "cnblogs_commentbox_up");
+            GA_googleAddSlot("ca-pub-4210569241504288", "cnblogs_blogpost_bottom");
+            GA_googleAddSlot("ca-pub-4210569241504288", "cnblogs_blogpost_bottom1");
+        }
+        catch (e) { }
+    }
+</script>
+<script type="text/javascript">
+    if (c_enable_dfp) {
+        try {
+            GA_googleFetchAds();
+        } catch (e) { }
+    }
+</script>
+<script type="text/javascript">
+	var blog_ad_has_shown = false;
+	var cb_c_u_id = '';
+	var cb_blog_uid = 'd86c46b3-e207-df11-ba8f-001cf0cd104b';
+</script>
+
+
+
+</div>
+	</div><a name="pagedcomment"></a>
+<h3>Feedback</h3>
+	
+			<div class="post">
+				<div class="posthead">
+					<h2>
+						<a href="#1900804">#1楼</a><a name="1900804" id="comment_anchor_1900804"></a>
+						　<a onclick="ReplyComment(&quot;小齐&quot;,1900804,&quot;aZxVj2EkXxxSUSTHIkhgYUu+bbq7zQpzlZJP3Axn+amBogqvSpcW7A==&quot;)" href="/SunYu/archive/2010/07/21/1782013.html#commentform">回复</a>　<a onclick="QuoteComment(1900804,&quot;aZxVj2EkXxxSUSTHIkhgYUu+bbq7zQpzlZJP3Axn+amBogqvSpcW7A==&quot;)" href="/SunYu/archive/2010/07/21/1782013.html#commentform">引用</a>　<a title="查看该作者发表过的评论" href="http://www.cnblogs.com/CommentsByAuthor.aspx?author=%e5%b0%8f%e9%bd%90" target="_blank">查看</a>　<a id="Comments1_CommentList_ctl00_DeleteLink" href="javascript:__doPostBack('Comments1$CommentList$ctl00$DeleteLink','')"></a>&nbsp;&nbsp;<a id="Comments1_CommentList_ctl00_EditLink"></a>
+					</h2>
+					2010-08-24 16:51 by <a id="Comments1_CommentList_ctl00_NameLink" href="http://www.cnblogs.com/andiki/" target="_blank">小齐</a>&nbsp;<a href="http://space.cnblogs.com/msg/send/%e5%b0%8f%e9%bd%90" title="给此人发送站内短消息" class="sendMsg2This">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				</div>
+				<div class="postbody"><span id="comment_body_1900804" class="blog_comment_body">可不可以不用X509证书直接使用用户名和密码验证啊</span></div>
+			</div>
+		
+			<div class="post">
+				<div class="posthead">
+					<h2>
+						<a href="#1901089">#2楼</a><a name="1901089" id="comment_anchor_1901089"></a>[<span class="louzhu">楼主</span>]<a name="Post"></a>
+						　<a onclick="ReplyComment(&quot;Happy Coding&quot;,1901089,&quot;on9ZHDDPoAnr56qUfx/NK88Q7VIQdBMlYQyBpN3wIlUIvZadNhXKyQ==&quot;)" href="/SunYu/archive/2010/07/21/1782013.html#commentform">回复</a>　<a onclick="QuoteComment(1901089,&quot;on9ZHDDPoAnr56qUfx/NK88Q7VIQdBMlYQyBpN3wIlUIvZadNhXKyQ==&quot;)" href="/SunYu/archive/2010/07/21/1782013.html#commentform">引用</a>　<a title="查看该作者发表过的评论" href="http://www.cnblogs.com/CommentsByAuthor.aspx?author=Happy+Coding" target="_blank">查看</a>　<a id="Comments1_CommentList_ctl01_DeleteLink" href="javascript:__doPostBack('Comments1$CommentList$ctl01$DeleteLink','')"></a>&nbsp;&nbsp;<a id="Comments1_CommentList_ctl01_EditLink"></a>
+					</h2>
+					2010-08-25 08:19 by <a id="Comments1_CommentList_ctl01_NameLink" href="http://www.cnblogs.com/SunYu/" target="_blank">Happy Coding</a>&nbsp;<a href="http://space.cnblogs.com/msg/send/Happy+Coding" title="给此人发送站内短消息" class="sendMsg2This">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				</div>
+				<div class="postbody"><span id="comment_body_1901089" class="blog_comment_body"><a href="#1900804" title="查看所回复的评论">@</a>小齐<br/>当然可以，不过一般没人那么做</span></div>
+			</div>
+		
+<script type="text/javascript">
+    var commentAuthorHasChecked = false;
+    var commentAuthorIsValid = false;
+    var commentUrlIsValid = true;
+    var commentEmailIsValid = true;
+    var authenCodeHasChecked = false;
+    var authenCodeIsValid = true;
+    var hasLogined = false;
+    
+    function PostComment() {    
+        
+        var isValid = true;
+        
+        if($("#wrapAuthenCode").css("display")=="none"){
+            ShowAuthenCode();
+            $("#tip_AuthenCode").css("color","red");
+            $("#tip_AuthenCode").html("请输入验证码！");
+            isValid = false;
+        }
+        
+        if(!hasLogined && !commentAuthorHasChecked){
+            CheckAuthor();        
+        }                
+        if(!hasLogined && !commentAuthorIsValid){
+            isValid = false;
+        }
+                       
+        if(!authenCodeHasChecked){
+            CheckAuthenCode();            
+        }
+        if(!authenCodeIsValid){
+            isValid = false;
+        }
+        
+        if(!hasLogined && !commentUrlIsValid){            
+            isValid = false;
+        }        
+        if(!commentEmailIsValid){            
+            isValid = false;
+        }        
+        if(!CheckCommentContent()){
+            isValid = false;
+        }    
+        if(!isValid){
+            return;
+        }
+
+        var content = $("#tbCommentBody").val();
+        if(content.length>2000){
+            alert("评论内容过长！不允许发布！");
+            return;
+        }     
+        
+        if(content.indexOf("　Ｅ　　　　　　　　　Ｅ　　　　　　　　　　Ｅ　　　　　　")>=0){
+            alert("该内容不允许布！");
+            return;
+        }   
+        
+       if ($("#span_comment_posted").html()!='' && $("#span_comment_posted").html()==content){
+            alert("该评论已发表过!");
+            return;
+        }
+        
+        $("#tip_comment").html("评论提交中...");
+        $("#span_comment_posted").html(content);
+        //content = content.replace("'", "\\'");
+        var email = $("#tbCommentEmail").val();
+        var authenNum = $("#tbAuthenCode").val();
+        var authenId = $("#span_comment_test").html();
+        var comment = {};
+        comment.authenNum = authenNum;
+        comment.authenId= authenId;
+        comment.parentId = 0;
+        comment.blogId = 0;
+        comment.sourceUrl = '';
+        comment.author = $("#tbCommentAuthor").val();
+        comment.url = $("#tbCommentAuthorUrl").val();
+        comment.authenCode = $("#tbAuthenCode").val();
+        comment.email = email;
+        comment.title = '';
+        comment.content = content;
+        comment.parentCommentId = $("#span_parentcomment_id").html();
+        $.ajax({
+            url: '/ws/CommentService.asmx/AddAnonymousComment',
+            data: $.toJSON(comment),
+            type: "post",
+            dataType: "json",
+            contentType: "application/json; charset=utf8",
+            success: function(data) {
+               if (data.d["IsSuccess"]) {
+                    ShowCommentMsg("感谢您的回复:)");
+                    //RereshComments2(comment.parentId);
+                    $("#tbCommentBody").val('');
+                    //$("#divCommentShow").html(data.d["ReturnData"]+content.replace(/\n/g,"<br/>")+"<br/><br/>");
+                    $("#divCommentShow").html($("#divCommentShow").html()+data.d["ReturnData"]); 
+                    $("#tip_AuthenCode").html('');
+                    RefreshAuthenCode();
+                    $("#tbAuthenCode").val("");                    
+                    CommentNotify(data.d["CommentID"]);
+                }
+                else {
+                    ShowCommentMsg(data.d["ReturnData"]);//"抱歉！评论提交失败！请与管理员联系。");
+                    $("#span_comment_posted").html(''); 
+                }
+            },
+            error: function(xhr) {
+                ShowCommentMsg("抱歉！评论提交失败！请与管理员联系。");
+                $("#span_comment_posted").html('');  
+                //alert(xhr.responseText);
+            }
+        }
+        );
+    }
+    
+    function RefreshAuthenCode(){
+        AjaxPost("/ws/CommentService.asmx/RefreshAuthenCode","{}",RefreshImg); 
+        $("#lnkRereshAuthenCode").html("<span style='color:red'>刷新中...</span>");
+        return false;
+    }
+    
+    function RefreshImg(response){
+       $("#imgAuthenCode").attr("src","/Modules/CaptchaImage/ValidCodeImage.aspx?id="+encodeURIComponent(response));
+       $("#span_comment_test").html(response);
+       $("#lnkRereshAuthenCode").html("看不清，换一个");
+    }
+    
+    function ShowAuthenCode(){
+        //if($("#wrapAuthenCode").css("display")=="none"){    
+        //    AjaxPost("/ws/CommentService.asmx/RefreshAuthenCode","{}",ShowAuthenCodeOk);
+        //}
+        $("#wrapAuthenCode").show();      
+    }
+    
+    function ShowAuthenCodeOk(response){
+         UpdateAuthenCode();
+         $("#tbAuthenCode").val("");
+         $("#wrapAuthenCode").show();
+         $("#tip_AuthenCode").html('');
+    }  
+ 
+    
+    function CheckAuthor(isOnblur){
+        commentAuthorHasChecked = true;
+        var maxLength = 30;
+        if($("#tbCommentAuthor").val().length == 0){
+            $("#tip_author").html("请输入您的昵称！");
+            commentAuthorIsValid = false;
+            return false;
+        }     
+        else if($("#tbCommentAuthor").val().length > maxLength){
+            $("#tip_author").html("昵称不允许超过" + maxLength + "个字符！");
+            commentAuthorIsValid = false;
+            return false;
+        }
+        else{
+            //if(isOnblur){
+                AjaxPost("/ws/CommentService.asmx/IsAuthorExist","{author:'"+$("#tbCommentAuthor").val()+"'}" ,OnCheckAuthorExist);
+            //}
+            //else{
+            //    $("#tip_author").html("");
+            //    commentAuthorIsValid = true;
+            //}
+            return true;
+        }
+   }
+   
+    function OnCheckAuthorExist(response){        
+        if(!response){
+            $("#tip_author").html("");
+            commentAuthorIsValid = true;
+        }
+        else{
+            $("#tip_author").html("该昵称已被使用，请更换昵称");
+            commentAuthorIsValid = false;
+        }
+   }
+   
+    function CheckUrl(){
+        var maxLength = 50;
+        var url = $("#tbCommentAuthorUrl").val();
+        
+        if(url.length == 0){
+            commentUrlIsValid = true;
+            return true;
+        }
+        else if(url.length > maxLength){
+            $("#tip_url").html("主页地址不允许超过" + maxLength + "个字符！");
+            commentUrlIsValid = false;
+            return false;
+        }
+        else if(url.indexOf("http://")!=0 || url.indexOf(".") < 0){
+            $("#tip_url").html("主页地址要以“http://”开头");
+            commentUrlIsValid = false;
+            return false;
+        }
+        else{
+            $("#tip_url").html("");
+            commentUrlIsValid = true;
+            return true;
+        }
+   }
+   
+   function CheckEmail(){
+        var email = $("#tbCommentEmail").val();
+        if(email.length>0){
+            var regExp = new RegExp("\\w+@((\\w|\-)+\\.)+[a-z]{2,3}");
+            if(!regExp.test(email)){
+                $("#tip_email").html("请输入正确的邮件地址!");
+                commentEmailIsValid = false;
+            }
+            else{
+                commentEmailIsValid = true;
+                 $("#tip_email").html("");
+            }
+        }
+        else{
+            commentEmailIsValid = true;
+            $("#tip_email").html("");  
+        }
+   }
+   
+   function CheckAuthenCode(){
+        authenCodeHasChecked = true;
+        var num = $("#tbAuthenCode").val();
+        var id = $("#span_comment_test").html();
+        $("#tip_AuthenCode").css("color","red");
+        if(num.length==0){
+             authenCodeIsValid = false;
+             $("#tip_AuthenCode").html("请输入验证码！");
+             return;
+        }
+        else if(num.length!=4){
+            authenCodeIsValid = false;
+            $("#tip_AuthenCode").html("请输入四位数字！");
+             return;
+        }
+        else if(new RegExp("(\d+)").test(num)){
+            authenCodeIsValid = false;
+            $("#tip_AuthenCode").html("请输入四位数字！");
+             return;
+        }
+        else{
+            AjaxPost("/ws/CommentService.asmx/CheckAuthenCode","{number:"+num+",id:'"+id+"'}", OnCheckAuthenCode);
+        }
+   }
+   
+   function OnCheckAuthenCode(response){
+        if(response){
+            $("#tip_AuthenCode").css("color","green");
+            $("#tip_AuthenCode").html("验证码输入正确！");
+            authenCodeIsValid = true;            
+        }
+        else{
+            $("#tip_AuthenCode").css("color","red");
+            $("#tip_AuthenCode").html("验证码输错啦！");
+            RefreshAuthenCode();
+            authenCodeIsValid = false;           
+        }
+   }
+   
+   function CheckCommentContent(){
+    if($("#tbCommentBody").val().length==0){
+        alert("请输入评论内容！");
+        return false;
+    }
+    return true;
+   }
+    
+</script>
+<div id="ctl02_comment_form" class="commentform">
+
+
+
+
+<div id="ctl02_divLoginPannel">
+<div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="http://passport.cnblogs.com/login.aspx?ReturnUrl=http%3a%2f%2fwww.cnblogs.com%2fSunYu%2farchive%2f2010%2f07%2f21%2f1782013.html%3flogin%3d1%23commentform" class="underline">登录</a> 或 <a rel="nofollow" href="http://passport.cnblogs.com/register.aspx?ReturnUrl=http%3a%2f%2fwww.cnblogs.com%2fSunYu%2farchive%2f2010%2f07%2f21%2f1782013.html%23Bottom2" class="underline">注册</a>，<a href="http://www.cnblogs.com" target="_blank">返回博客园首页</a>。</div>
+</div>
+
+<div class="itnews c_ad_block">
+<a href="http://news.cnblogs.com/">IT新闻</a>:<br />
+
+          ·  <a href="http://news.cnblogs.com/n/88908/" target="_blank">苹果CEO乔布斯鲜为人知的15个小秘密</a><br />
+	
+          ·  <a href="http://news.cnblogs.com/n/88907/" target="_blank">Facebook联合创始人与同性男友订婚</a><br />
+	
+          ·  <a href="http://news.cnblogs.com/n/88906/" target="_blank">《花花公子》将推出无审核的iPad应用</a><br />
+	
+          ·  <a href="http://news.cnblogs.com/n/88905/" target="_blank">联想给力移动设备研发 欲做“中国的苹果”</a><br />
+	
+          ·  <a href="http://news.cnblogs.com/n/88903/" target="_blank">一家公司在亚马逊上出售开源软件和游戏</a><br />
+	
+<a href="http://news.cnblogs.com/">更多IT新闻...</a>
+</div>
+
+
+<div class="c_ad_block">
+<div style="margin-top:5px;">
+<script type="text/javascript">
+    if (c_enable_dfp) {
+        try {
+            GA_googleFillSlot("cnblogs_blogpost_bottom");
+        }
+        catch (e) { }
+    }
+</script>
+</div>
+<div class="itnews c_ad_block" id="job_block">
+<a href="http://kb.cnblogs.com/" target="_blank" title="程序员知识库"><b>知识库最新文章</b></a>:<br />
+<div id="kb_recent">
+
+		<a href="http://kb.cnblogs.com/page/88739/" target="_blank">WCF的问题和Using语句块</a><br />
+	
+		<a href="http://kb.cnblogs.com/page/87814/" target="_blank">“测试是浪费时间，我的程序肯定没问题”</a><br />
+	
+		<a href="http://kb.cnblogs.com/page/87817/" target="_blank">设计可以是一种垄断</a><br />
+	
+		<a href="http://kb.cnblogs.com/page/87849/" target="_blank">开发与研发</a><br />
+	
+		<a href="http://kb.cnblogs.com/page/87851/" target="_blank">微软缘何认为VB与C#需要异步语法</a><br />
+	
+</div>
+</div>
+</div>
+
+<div id="site_nav_under" class="c_ad_block">
+网站导航：<br />
+<a href="http://www.cnblogs.com/" target="_blank">博客园首页</a> &nbsp;<a href="http://news.cnblogs.com/" target="_blank">IT新闻</a> &nbsp;<a href="http://home.cnblogs.com/" target="_blank">我的园子</a> &nbsp;<a href="http://home.cnblogs.com/ing/" target="_blank">闪存</a> &nbsp;<a href="http://job.cnblogs.com/" target="_blank">程序员招聘</a> &nbsp;<a href="http://home.cnblogs.com/q/" target="_blank">博问</a> 
+</div>
+<div id="ad_under_comment2" class="c_ad_block">
+<a href="http://www.china-pub.com/static07/0908/zh_pod_090825.asp" target="_blank"><img src="http://static.cnblogs.com/images/a4/china-pub_pod.jpg" alt="" style="border:0px;"/></a><br />
+<a href="http://www.china-pub.com/itbook/" target="_blank">China-pub 计算机图书网上专卖店！6.5万品种2-8折！</a><br />
+<a href="http://www.china-pub.com/static07/0901/zh_jueba_090121.asp" target="_blank">China-Pub 计算机绝版图书按需印刷服务</a><br />
+</div>
+
+<div id="relative_search"><br/><b>相关搜索:</b><br/> <a href="http://zzk.cnblogs.com/s?w=WCF" target="_blank">WCF</a> </div><div id="kb_link"><br/><b>最简洁阅读版式：</b><br/> <a href="http://archive.cnblogs.com/a/1782013/">WCF的用户名密码认证</a></div>
+
+
+
+
+
+</div>
+
+
+				
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="FooterCell">
+			
+<p id="footer">
+	Powered by: 
+	<br />
+	
+	<a id="Footer1_Hyperlink3" NAME="Hyperlink1" href="http://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br />
+	Copyright &copy; Happy Coding
+</p>
+
+		</td>
+	</tr>
+</table>
+<div id="lefttemp" style="display:none">
+	
+		
+<div id="Cal">
+<img src="/Skins/KJC/Images/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>日历</h3>
+<table id="Calendar1_entryCal" class="cal" cellspacing="0" cellpadding="0" title="Calendar" border="0" style="border-width:0px;height:160px;border-collapse:collapse;">
+	<tr><td colspan="7" style="background-color:#EEEEEE;"><table class="cal" cellspacing="0" border="0" style="color:#666666;font-size:13px;font-weight:bold;width:100%;border-collapse:collapse;">
+		<tr><td valign="bottom" style="width:15%;"><a href="javascript:__doPostBack('Calendar1$entryCal','V3804')" style="color:Black" title="Go to the previous month">&lt;</a></td><td align="center" style="width:70%;">2010年7月</td><td align="right" valign="bottom" style="width:15%;"><a href="javascript:__doPostBack('Calendar1$entryCal','V3865')" style="color:Black" title="Go to the next month">&gt;</a></td></tr>
+	</table></td></tr><tr><th align="center" abbr="日" scope="col" style="background-color:#DDDDCC;font-size:12px;">日</th><th align="center" abbr="一" scope="col" style="background-color:#DDDDCC;font-size:12px;">一</th><th align="center" abbr="二" scope="col" style="background-color:#DDDDCC;font-size:12px;">二</th><th align="center" abbr="三" scope="col" style="background-color:#DDDDCC;font-size:12px;">三</th><th align="center" abbr="四" scope="col" style="background-color:#DDDDCC;font-size:12px;">四</th><th align="center" abbr="五" scope="col" style="background-color:#DDDDCC;font-size:12px;">五</th><th align="center" abbr="六" scope="col" style="background-color:#DDDDCC;font-size:12px;">六</th></tr><tr><td align="center" style="color:Gray;font-size:11px;width:14%;">27</td><td align="center" style="color:Gray;font-size:11px;width:14%;">28</td><td align="center" style="color:Gray;font-size:11px;width:14%;">29</td><td align="center" style="color:Gray;font-size:11px;width:14%;">30</td><td align="center" style="font-size:11px;width:14%;">1</td><td align="center" style="font-size:11px;width:14%;">2</td><td align="center" style="font-size:11px;width:14%;">3</td></tr><tr><td align="center" style="font-size:11px;width:14%;">4</td><td align="center" style="font-size:11px;width:14%;">5</td><td align="center" style="font-size:11px;width:14%;">6</td><td align="center" style="font-size:11px;width:14%;">7</td><td align="center" style="font-size:11px;width:14%;">8</td><td align="center" style="font-size:11px;width:14%;">9</td><td align="center" style="font-size:11px;width:14%;">10</td></tr><tr><td align="center" style="font-size:11px;width:14%;">11</td><td align="center" style="font-size:11px;width:14%;"><a href="http://www.cnblogs.com/SunYu/archive/2010/7/12.html"><u>12</u></a></td><td align="center" style="font-size:11px;width:14%;">13</td><td align="center" style="font-size:11px;width:14%;">14</td><td align="center" style="font-size:11px;width:14%;"><a href="http://www.cnblogs.com/SunYu/archive/2010/7/15.html"><u>15</u></a></td><td align="center" style="font-size:11px;width:14%;">16</td><td align="center" style="font-size:11px;width:14%;">17</td></tr><tr><td align="center" style="font-size:11px;width:14%;">18</td><td align="center" style="font-size:11px;width:14%;"><a href="http://www.cnblogs.com/SunYu/archive/2010/7/19.html"><u>19</u></a></td><td align="center" style="font-size:11px;width:14%;">20</td><td align="center" style="font-size:11px;width:14%;"><a href="http://www.cnblogs.com/SunYu/archive/2010/7/21.html"><u>21</u></a></td><td align="center" style="font-size:11px;width:14%;">22</td><td align="center" style="font-size:11px;width:14%;"><a href="http://www.cnblogs.com/SunYu/archive/2010/7/23.html"><u>23</u></a></td><td align="center" style="font-size:11px;width:14%;">24</td></tr><tr><td align="center" style="font-size:11px;width:14%;">25</td><td align="center" style="font-size:11px;width:14%;">26</td><td align="center" style="font-size:11px;width:14%;">27</td><td align="center" style="font-size:11px;width:14%;">28</td><td align="center" style="font-size:11px;width:14%;"><a href="http://www.cnblogs.com/SunYu/archive/2010/7/29.html"><u>29</u></a></td><td align="center" style="font-size:11px;width:14%;">30</td><td align="center" style="font-size:11px;width:14%;">31</td></tr><tr><td align="center" style="color:Gray;font-size:11px;width:14%;">1</td><td align="center" style="color:Gray;font-size:11px;width:14%;">2</td><td align="center" style="color:Gray;font-size:11px;width:14%;">3</td><td align="center" style="color:Gray;font-size:11px;width:14%;">4</td><td align="center" style="color:Gray;font-size:11px;width:14%;">5</td><td align="center" style="color:Gray;font-size:11px;width:14%;">6</td><td align="center" style="color:Gray;font-size:11px;width:14%;">7</td></tr>
+</table>
+</div>
+
+		
+	
+	
+<script type="text/javascript">
+    var blogapp = 'SunYu';
+</script>
+<div id="cell">
+<img src="/Skins/KJC/Images/icon-group.jpg" hspace=5 align=left vspace=2>
+<h3 class="catListTitle">搜索</h3>
+
+<div class="div_my_zzk"><input  type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk"/>&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"/></div>
+
+<div class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk"/>&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索"  class="btn_my_zzk"/></div>
+
+</div>
+		<div id=cell>
+		<img src="/Skins/KJC/Images/icon-group.jpg" hspace=5 align=left vspace=2><h3>随笔分类<span style="font-size:11px;font-weight:normal">(382)</span></h3>
+		
+				<ul>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl01_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243764.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl01_Link" href="http://www.cnblogs.com/SunYu/category/243764.html">.NET Remoting(6)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl02_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/271955.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl02_Link" href="http://www.cnblogs.com/SunYu/category/271955.html">AE(11)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl03_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/273121.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl03_Link" href="http://www.cnblogs.com/SunYu/category/273121.html">Android(1)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl04_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243780.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl04_Link" href="http://www.cnblogs.com/SunYu/category/243780.html">AT(3)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl05_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243833.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl05_Link" href="http://www.cnblogs.com/SunYu/category/243833.html">BarCode(3)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl06_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/253158.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl06_Link" href="http://www.cnblogs.com/SunYu/category/253158.html">C/C++(2)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl07_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243206.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl07_Link" href="http://www.cnblogs.com/SunYu/category/243206.html">DotNet(29)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl08_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243507.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl08_Link" href="http://www.cnblogs.com/SunYu/category/243507.html">Email(8)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl09_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243517.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl09_Link" href="http://www.cnblogs.com/SunYu/category/243517.html">Excel(10)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl10_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243664.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl10_Link" href="http://www.cnblogs.com/SunYu/category/243664.html">FTP(7)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl11_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243204.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl11_Link" href="http://www.cnblogs.com/SunYu/category/243204.html">GIS(23)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl12_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243663.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl12_Link" href="http://www.cnblogs.com/SunYu/category/243663.html">GoogleEarth(5)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl13_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243665.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl13_Link" href="http://www.cnblogs.com/SunYu/category/243665.html">GoogleMap(13)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl14_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243509.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl14_Link" href="http://www.cnblogs.com/SunYu/category/243509.html">HTTP(2)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl15_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243830.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl15_Link" href="http://www.cnblogs.com/SunYu/category/243830.html">IBATIS(15)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl16_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243666.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl16_Link" href="http://www.cnblogs.com/SunYu/category/243666.html">MapXtreme(27)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl17_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243854.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl17_Link" href="http://www.cnblogs.com/SunYu/category/243854.html">NUnit单元测试(10)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl18_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243779.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl18_Link" href="http://www.cnblogs.com/SunYu/category/243779.html">RAS(4)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl19_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/253555.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl19_Link" href="http://www.cnblogs.com/SunYu/category/253555.html">Silverlight(8)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl20_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243525.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl20_Link" href="http://www.cnblogs.com/SunYu/category/243525.html">Socket(9)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl21_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243838.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl21_Link" href="http://www.cnblogs.com/SunYu/category/243838.html">SQL Server(1)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl22_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/258836.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl22_Link" href="http://www.cnblogs.com/SunYu/category/258836.html">UI(1)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl23_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243793.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl23_Link" href="http://www.cnblogs.com/SunYu/category/243793.html">WAP(2)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl24_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243207.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl24_Link" href="http://www.cnblogs.com/SunYu/category/243207.html">WCF(39)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl25_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/244305.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl25_Link" href="http://www.cnblogs.com/SunYu/category/244305.html">WEB MAPX(1)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl26_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243783.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl26_Link" href="http://www.cnblogs.com/SunYu/category/243783.html">WIN CE(5)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl27_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243667.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl27_Link" href="http://www.cnblogs.com/SunYu/category/243667.html">Win32 API(16)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl28_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/249114.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl28_Link" href="http://www.cnblogs.com/SunYu/category/249114.html">WIN7+2010(1)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl29_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243836.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl29_Link" href="http://www.cnblogs.com/SunYu/category/243836.html">Window Mobile(4)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl30_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243750.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl30_Link" href="http://www.cnblogs.com/SunYu/category/243750.html">Windows(2)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl31_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243835.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl31_Link" href="http://www.cnblogs.com/SunYu/category/243835.html">Wireshark(2)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl32_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243772.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl32_Link" href="http://www.cnblogs.com/SunYu/category/243772.html">WMI(13)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl33_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243753.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl33_Link" href="http://www.cnblogs.com/SunYu/category/243753.html">串口通信(4)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl34_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243205.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl34_Link" href="http://www.cnblogs.com/SunYu/category/243205.html">读书(2)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl35_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243792.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl35_Link" href="http://www.cnblogs.com/SunYu/category/243792.html">短信编程(3)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl36_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243834.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl36_Link" href="http://www.cnblogs.com/SunYu/category/243834.html">二维条码(4)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl37_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243763.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl37_Link" href="http://www.cnblogs.com/SunYu/category/243763.html">反射(5)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl38_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243749.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl38_Link" href="http://www.cnblogs.com/SunYu/category/243749.html">互操作(9)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl39_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243802.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl39_Link" href="http://www.cnblogs.com/SunYu/category/243802.html">权限管理&&动态加载树(14)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl40_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243881.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl40_Link" href="http://www.cnblogs.com/SunYu/category/243881.html">设计模式(23)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl41_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243754.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl41_Link" href="http://www.cnblogs.com/SunYu/category/243754.html">通信编程(7)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl42_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243490.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl42_Link" href="http://www.cnblogs.com/SunYu/category/243490.html">委托事件(8)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl43_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243796.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl43_Link" href="http://www.cnblogs.com/SunYu/category/243796.html">协议编程(3)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl44_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243797.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl44_Link" href="http://www.cnblogs.com/SunYu/category/243797.html">异常处理(3)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl45_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243752.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl45_Link" href="http://www.cnblogs.com/SunYu/category/243752.html">硬件(6)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl46_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243774.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl46_Link" href="http://www.cnblogs.com/SunYu/category/243774.html">远程控制(4)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl47_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/253556.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl47_Link" href="http://www.cnblogs.com/SunYu/category/253556.html">杂记(2)</a>
+				</li>
+			
+				<li><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl48_RssLink" href="#" onclick="return open_link('http://www.cnblogs.com/SunYu/category/243523.html/rss');"><img src="/Skins/KJC/Images/xmlsmall.gif" style="border-width:0px;" /></a><a id="Singlecolumn2_Categories_CatList_ctl00_LinkList_ctl48_Link" href="http://www.cnblogs.com/SunYu/category/243523.html">正则表达式(2)</a>
+				</li>
+			
+				</ul>
+			</div>
+	
+
+<div id="cell">
+<img src="/Skins/KJC/Images/icon-group.jpg" hspace=5 align=left vspace=2><h3>最新评论
+	<a id="Singlecolumn2__1ffed9af7d2c_RSSHyperlink1" href="http://www.cnblogs.com/SunYu/CommentsRSS.aspx"><img src="/images/xml.gif" style="border-width:0px;" /></a></h3>
+<div class="RecentComment">
+	
+			<ul>
+		
+			<li style="word-break:break-all">
+				<a id="Singlecolumn2__1ffed9af7d2c_CommentList_ctl01_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/04/29/1723992.html#2013675">1. Re:用C#调试AT指令</a>
+			</li>
+			<li style="word-break:break-all">
+				兄弟，你赶紧上线吧，我搞不定，,modem会返回 &quot;NO DIALTONE&quot; 或 &quot;BUSY&quot;,读取返回值，这个对于订票系统是行不通的，求教。
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--大海啊</li>
+		
+			<li style="word-break:break-all">
+				<a id="Singlecolumn2__1ffed9af7d2c_CommentList_ctl02_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/07/29/1788249.html#2008973">2. Re:如何在Google Map中处理大量标记(ASP.NET)(原创-翻译)</a>
+			</li>
+			<li style="word-break:break-all">
+				使用Google地图API的时候遇到一个问题
+我使用GPS采集坐标+图片。
+现在想把图片和坐标定位到Google地图上，发现偏移了很多，
+不知道这个怎么解决。希望有知道的人告诉我下，我的QQ：2898...
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--Cool it</li>
+		
+			<li style="word-break:break-all">
+				<a id="Singlecolumn2__1ffed9af7d2c_CommentList_ctl03_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/04/29/1724521.html#2008964">3. Re:在ASP.NET中使用Google Maps (转)</a>
+			</li>
+			<li style="word-break:break-all">
+				挺好的。
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--Cool it</li>
+		
+			<li style="word-break:break-all">
+				<a id="Singlecolumn2__1ffed9af7d2c_CommentList_ctl04_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/04/29/1723992.html#2008294">4. Re:用C#调试AT指令</a>
+			</li>
+			<li style="word-break:break-all">
+				老兄，这个东西太高级了点。 到底怎么个用法啊。比如我想拨号一个手机号码。
+&lt;add key=&quot;Com_1_Dial&quot; value=&quot;ATDT13122338733&...
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--沙漠鱼</li>
+		
+			<li style="word-break:break-all">
+				<a id="Singlecolumn2__1ffed9af7d2c_CommentList_ctl05_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/04/29/1724141.html#2004764">5. Re:winform权限管理实现【转】</a>
+			</li>
+			<li style="word-break:break-all">
+				你好，请问你的这个数据库是怎么设计的？
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--silence810</li>
+		
+			</ul>
+		
+</div>
+</div>
+
+<div id="cell">
+<img src="/Skins/KJC/Images/icon-group.jpg" hspace=5 align=left vspace=2><h3>阅读排行榜</h3>
+<div class="RecentComment">
+	
+			<ul style="word-break:break-all">
+		
+			<li>
+				<a id="Singlecolumn2__3bfc929f9206_TopList_ctl01_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/07/29/1788249.html">1. 如何在Google Map中处理大量标记(ASP.NET)(原创-翻译)(2547)</a>
+			</li>
+		
+			<li>
+				<a id="Singlecolumn2__3bfc929f9206_TopList_ctl02_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/04/27/1722471.html">2. C#操作Excel(创建、打开、读写、保存)几种方法的总结(1325)</a>
+			</li>
+		
+			<li>
+				<a id="Singlecolumn2__3bfc929f9206_TopList_ctl03_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/04/29/1724381.html">3. C# TreeView递归遍历方法(681)</a>
+			</li>
+		
+			<li>
+				<a id="Singlecolumn2__3bfc929f9206_TopList_ctl04_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/04/29/1724503.html">4. 一些有用的地址汇总(657)</a>
+			</li>
+		
+			<li>
+				<a id="Singlecolumn2__3bfc929f9206_TopList_ctl05_Hyperlink1" href="http://www.cnblogs.com/SunYu/archive/2010/04/30/1724714.html">5. [专家讲座] ArcGIS API for Silverlight开发入门（1）：Getting Started(转)(647)</a>
+			</li>
+		
+			</ul>
+		
+</div>
+</div>
+
+</div>
+
+    </form>
+	<script type="text/javascript" src="http://common.cnblogs.com/script/shCore.js"></script>
+	<script type="text/javascript" src="http://common.cnblogs.com/script/shLanguage.js"></script>
+    <script type="text/javascript">
+        try {
+            SyntaxHighlighter.config.clipboardSwf = 'http://common.cnblogs.com/flash/clipboard.swf';
+            SyntaxHighlighter.all();
+        } catch (e) { }
+    </script>  
+    <script type="text/javascript" src="http://www.cnblogs.com/script/ShowHidden.js"></script>
+    
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-476124-1");
+            pageTracker._trackPageview();
+        } catch (err) { }</script>
+</body>
+</html>
