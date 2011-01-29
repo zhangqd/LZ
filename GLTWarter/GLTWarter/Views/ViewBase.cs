@@ -426,7 +426,7 @@ namespace GLTWarter.Views
         /// This is the callback endpoint for Service Call.
         /// </summary>
         /// <param name="asr">The IAsyncResult state assigned</param>
-        protected void ServiceCallback(DeliveryRpcCallCompletedEventArgs e)
+        protected void ServiceCallback(GLTWarterRpcCallCompletedEventArgs e)
         {
             ServiceCallState state = e.UserState as ServiceCallState;
 

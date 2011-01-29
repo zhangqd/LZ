@@ -23,14 +23,14 @@ namespace GLTWarter
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            //Xceed.Wpf.DataGrid.Licenser.LicenseKey = "DGP31-M42XN-22M34-CWJA";
+            Xceed.Wpf.DataGrid.Licenser.LicenseKey = "DGP31-M42XN-22M34-CWJA";
 
             this.MainWindow = new MainScreen();
-            //if (new LoginScreen(App.Active.Rpc).ShowDialog() == false)
-            //{
-            //    Application.Current.Shutdown();
-            //}
-           this.MainWindow.Show();
+            if (new LoginScreen().ShowDialog() == false)
+            {
+                Application.Current.Shutdown();
+            }
+            this.MainWindow.Show();
         }
     }
 }
