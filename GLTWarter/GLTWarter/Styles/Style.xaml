@@ -445,6 +445,35 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="NavigationWindowRefreshButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Command" Value="NavigationCommands.Refresh"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Width="24" Height="24" Background="Transparent">
+                        <Ellipse x:Name="Circle" Fill="{StaticResource NavigationWindowNavigationButtonFillEnabled}" Stroke="{StaticResource NavigationWindowNavigationButtonStrokeEnabled}" StrokeThickness="1" Grid.Column="0"/>
+                        <Path x:Name="Arrow" Fill="{StaticResource NavigationWindowNavigationArrowFill}" Stretch="Fill" Stroke="{StaticResource NavigationWindowNavigationArrowStrokeEnabled}" StrokeThickness="0.75" HorizontalAlignment="Stretch" Margin="3.334,3.554,3.833,3.138" Width="Auto" Data="M8.6662655,0.375 C10.953599,0.37499994 13.024603,1.2998497 14.524678,2.7954755 L14.556112,2.8275964 16.008709,1.375 16.458,1.375 16.458,7.7909999 10.042,7.7909999 10.042,7.3417091 11.849386,5.5343227 11.809179,5.4922786 C11.003174,4.6910887 9.8925381,4.1960006 8.6662655,4.1960006 6.2041011,4.1960006 4.2081232,6.1919146 4.2081232,8.6540003 4.2081232,11.116085 6.2041011,13.112002 8.6662655,13.112002 9.9742899,13.112002 11.150744,12.548701 11.966263,11.651459 L12.077617,11.522912 14.790001,14.235211 14.668053,14.366017 C13.157991,15.947521 11.027384,16.933001 8.6662655,16.933001 4.0871263,16.933001 0.37500003,13.226366 0.375,8.6540003 0.37500003,4.081635 4.0871263,0.375 8.6662655,0.375 z"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Fill" TargetName="Circle" Value="{StaticResource NavigationWindowNavigationButtonFillDisabled}"/>
+                            <Setter Property="Stroke" TargetName="Circle" Value="#B5BACE"/>
+                            <Setter Property="Stroke" TargetName="Arrow" Value="#B0B5BACE"/>
+                            <Setter Property="Fill" TargetName="Arrow" Value="#D0FFFFFF"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Fill" TargetName="Circle" Value="{StaticResource NavigationWindowNavigationButtonFillHover}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Fill" TargetName="Circle" Value="{StaticResource NavigationWindowNavigationButtonFillPressed}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="NavigationWindowForwardButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="Command" Value="NavigationCommands.BrowseForward"/>

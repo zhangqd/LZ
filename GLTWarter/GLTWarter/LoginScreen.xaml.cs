@@ -49,6 +49,7 @@ namespace GLTWarter
                 (Action)delegate()
                 {
                     frameContent.Navigate(pageLogin);
+                    pageLogin.VerdictReceived += new System.Windows.Navigation.ReturnEventHandler<string>(pageLogin_Return);
                 }
             );
 

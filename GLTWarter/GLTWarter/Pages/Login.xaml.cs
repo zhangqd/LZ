@@ -63,8 +63,7 @@ namespace GLTWarter.Pages
 
         protected override void OnNext(GLTWarter.Data.BusinessEntity incomingData)
         {
-
-
+          
         }
 
 
@@ -76,6 +75,21 @@ namespace GLTWarter.Pages
         private void DetailsBase_Return(object sender, ReturnEventArgs<Data.BusinessEntity> e)
         {
 
+        }
+        public event System.Windows.Navigation.ReturnEventHandler<string> VerdictReceived;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.textAlias.Text.Trim() == string.Empty)
+            { }
+            else if (this.passwordPassword.Password.Trim() == string.Empty)
+            { }
+
+            System.Windows.Navigation.ReturnEventHandler<string> handler = VerdictReceived;
+            if (handler != null)
+            {
+                handler(this, new System.Windows.Navigation.ReturnEventArgs<string>(null));
+            }
         }
     }
 }

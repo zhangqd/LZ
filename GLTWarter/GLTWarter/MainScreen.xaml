@@ -5,6 +5,7 @@
     xmlns:my="clr-namespace:GLTWarter.Controls"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     Height="700" Width="900"
+        Icon="App.ico"
     >
     <Window.Resources>
         <src:MainWindowEffectiveRoleCheckConverter x:Key="MainWindowEffectiveRoleCheckConverter"/>
@@ -16,8 +17,6 @@
                 <Setter Property="Header" Value="{Binding Converter={StaticResource MainWindowEntityRolesMapHeaderConverter}}"/>
             </Style.Setters>
         </Style>
-
-      
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="src:MainScreen.BrowseHomepage" Executed="BrowseHomepage_Executed"/>
@@ -66,7 +65,7 @@
         <ItemsControl DockPanel.Dock="Top" Style="{StaticResource NotificationBar}" Padding="3" Focusable="False">
             <TextBlock  TextWrapping="Wrap" Margin="2">
                 <InlineUIContainer BaselineAlignment="Center"></InlineUIContainer>
-                正在导出 <TextBlock Text="3"/> 张报表</TextBlock>
+               </TextBlock>
         </ItemsControl>
         
         <my:BrowserTabControl Margin="0,2,0,0" x:Name="tabPageControl" Focusable="False">

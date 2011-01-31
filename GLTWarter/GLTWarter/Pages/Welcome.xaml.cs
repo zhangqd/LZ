@@ -117,5 +117,15 @@ namespace GLTWarter.Pages
         {
             MessageBox.Show("待开发");
         }
+
+        private void linkWarterOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void linkDeliverOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
