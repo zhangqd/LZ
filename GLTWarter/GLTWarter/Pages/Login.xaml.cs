@@ -84,6 +84,12 @@ namespace GLTWarter.Pages
             { }
             else if (this.passwordPassword.Password.Trim() == string.Empty)
             { }
+            GLTService.ServiceAPIClient client = new GLTService.ServiceAPIClient();
+            Galant.DataEntity.Entity entity = new Galant.DataEntity.Entity();
+            entity.Alias = this.textAlias.Text;
+            entity.Password = this.passwordPassword.Password.Trim();
+
+            object ob = client.DoRequest(entity, entity, "Login");
 
             System.Windows.Navigation.ReturnEventHandler<string> handler = VerdictReceived;
             if (handler != null)

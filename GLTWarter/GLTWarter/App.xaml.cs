@@ -13,10 +13,12 @@ namespace GLTWarter
     public partial class App : Application
     {
 
-        static public App Active
+        public App()
         {
-            get;
-            set;
+            AppCurrent.Logger.Info("--- Application Starting ---");
+            AppCurrent.Active = new AppCurrent();
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+
         }
 
         public MainScreen MainScreen { get; set; }

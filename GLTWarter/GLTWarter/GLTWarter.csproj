@@ -167,6 +167,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AppCurrent.cs" />
     <Compile Include="Controls\ControlStyle.xaml.cs">
       <DependentUpon>ControlStyle.xaml</DependentUpon>
     </Compile>
@@ -176,6 +177,11 @@
     <Compile Include="Data\BusinessEntity.cs" />
     <Compile Include="Data\IIdentifiable.cs" />
     <Compile Include="Data\SearchCondition.cs" />
+    <Compile Include="DeploymentSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>DeploymentSettings.settings</DependentUpon>
+    </Compile>
     <Compile Include="LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
     </Compile>
@@ -209,6 +215,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GLTService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Styles\ValidationErrorsConverter.cs" />
     <Compile Include="TabPage.cs" />
     <Compile Include="Utils.cs" />
@@ -219,12 +235,31 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="DeploymentSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DeploymentSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\DataSources\Galant.DataEntity.BaseData.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\GLTService\Service1.wsdl" />
+    <None Include="Service References\GLTService\ServiceAPI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GLTService\ServiceAPI1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GLTService\ServiceAPI2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -266,6 +301,30 @@
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GLTServices\Galant.DataEntity\Galant.DataEntity.csproj">
+      <Project>{BEA01CB6-2CDB-4841-A912-34344D1F7DAF}</Project>
+      <Name>Galant.DataEntity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GLTService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GLTService\ServiceAPI.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GLTService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GLTService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GLTService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
