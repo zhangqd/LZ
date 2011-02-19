@@ -243,7 +243,7 @@ namespace GLTWarter
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (App.Active == null)
+            if (AppCurrent.Active == null)
                 return DependencyProperty.UnsetValue;
 
             bool selected=false;

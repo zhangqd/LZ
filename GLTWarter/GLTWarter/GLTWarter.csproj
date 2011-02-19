@@ -62,8 +62,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependency\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.UnitTesting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -137,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\WaitingIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LoginScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -173,9 +175,10 @@
     </Compile>
     <Compile Include="Controls\DetailsPagePresenter.cs" />
     <Compile Include="Controls\PropertyRow.cs" />
+    <Compile Include="Controls\WaitingIcon.xaml.cs">
+      <DependentUpon>WaitingIcon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\BackObject.cs" />
-    <Compile Include="Data\BusinessEntity.cs" />
-    <Compile Include="Data\IIdentifiable.cs" />
     <Compile Include="Data\SearchCondition.cs" />
     <Compile Include="DeploymentSettings.Designer.cs">
       <AutoGen>True</AutoGen>

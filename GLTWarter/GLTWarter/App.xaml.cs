@@ -34,5 +34,10 @@ namespace GLTWarter
             }
             this.MainWindow.Show();
         }
+
+        void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            AppCurrent.Logger.Fatal("Unhandled exception is caught.", e.ExceptionObject as Exception);
+        }
     }
 }

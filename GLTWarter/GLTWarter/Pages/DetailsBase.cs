@@ -19,10 +19,10 @@ using System.Windows.Automation.Provider;
 
 namespace GLTWarter.Pages
 {
-    public class DetailsBase : PageFunction<Data.BusinessEntity>, INotifyPropertyChanged
+    public class DetailsBase : PageFunction<Galant.DataEntity.BaseData>, INotifyPropertyChanged
     {        
-        protected Data.BusinessEntity dataBackup;
-        protected Data.BusinessEntity dataCurrent;
+        protected Galant.DataEntity.BaseData dataBackup;
+        protected Galant.DataEntity.BaseData dataCurrent;
 
         protected string originalQueryId;
 
@@ -37,7 +37,7 @@ namespace GLTWarter.Pages
 
         public DetailsBase() { /*throw new NotImplementedException("Do not use this. This is just to satisfy the designer.");*/ }
             
-        public DetailsBase(Data.BusinessEntity data)
+        public DetailsBase(Galant.DataEntity.BaseData data)
         {
             this.KeepAlive = true;
             this.AddHandler(Page.GotFocusEvent, new RoutedEventHandler(Page_RememberFocus), true);
@@ -205,7 +205,7 @@ namespace GLTWarter.Pages
             if (BackAllowed == false)
             {
                 e.Handled = true;
-                OnReturn(new ReturnEventArgs<GLTWarter.Data.BusinessEntity>(new Data.BackObject()));
+                OnReturn(new ReturnEventArgs<Galant.DataEntity.BaseData>(new Data.BackObject()));
             }
         }
 
@@ -249,7 +249,7 @@ namespace GLTWarter.Pages
             lastFocusElement = FocusManager.GetFocusedElement(FocusManager.GetFocusScope(this));
         }
 
-        protected virtual Data.BusinessEntity CreateNewEntity() { return null; }
+        protected virtual Galant.DataEntity.BaseData CreateNewEntity() { return null; }
 
         protected virtual void FocusFirstControl() { }
 
@@ -274,7 +274,7 @@ namespace GLTWarter.Pages
             }
         }
 
-        protected virtual void PopulateDataMigrate(Data.BusinessEntity newData, Data.BusinessEntity oldData)
+        protected virtual void PopulateDataMigrate(Galant.DataEntity.BaseData newData, Galant.DataEntity.BaseData oldData)
         {            
         }
 
@@ -286,7 +286,7 @@ namespace GLTWarter.Pages
                 {
                     try
                     {
-                        Data.BusinessEntity newData = null;//dataCurrent.EndPopulate(asr) as Data.BusinessEntity;
+                        Galant.DataEntity.BaseData newData = null;//dataCurrent.EndPopulate(asr) as Galant.DataEntity.BaseData;
                         if (newData != null)
                         {
                             if (dataCurrent != null)
@@ -296,7 +296,7 @@ namespace GLTWarter.Pages
                                 PopulateDataMigrate(newData, dataCurrent);
                             }
                             dataCurrent = newData;
-                            dataBackup = dataCurrent.Clone() as Data.BusinessEntity;
+                            dataBackup = dataCurrent.Clone() as Galant.DataEntity.BaseData;
                             dataBackup.IsLoading = false;
                             this.DataContext = dataCurrent;
                             dataCurrent.IsLoading = false;                            
@@ -318,14 +318,14 @@ namespace GLTWarter.Pages
                         ShowPopulateError(ex.ToString());
                     }
                     this.Restorefocus();
-                    OnReturn(new ReturnEventArgs<GLTWarter.Data.BusinessEntity>(dataBackup));
+                    OnReturn(new ReturnEventArgs<Galant.DataEntity.BaseData>(dataBackup));
                 }
             );
         }
 
         protected void ShowPopulateError(string message)
         {
-            MessageBox.Show(App.Active.MainWindow, message, this.Title);
+            MessageBox.Show(AppCurrent.Active.MainWindow, message, this.Title);
         }
 
         protected virtual void PreCommit()
@@ -389,20 +389,20 @@ namespace GLTWarter.Pages
                 {
                     try
                     {
-                        Data.BusinessEntity data = null;//dataCurrent.EndPopulate(asr) as Data.BusinessEntity;
+                        Galant.DataEntity.BaseData data = null;//dataCurrent.EndPopulate(asr) as Galant.DataEntity.BaseData;
                         if (data != null)
                         {
                             dataCurrent = data;
-                            dataBackup = dataCurrent.Clone() as Data.BusinessEntity;
+                            dataBackup = dataCurrent.Clone() as Galant.DataEntity.BaseData;
                             dataBackup.IsLoading = false;
 
-                            if (this.DataContext as Data.BusinessEntity != null) (this.DataContext as Data.BusinessEntity).IsLoading = false;
+                            if (this.DataContext as Galant.DataEntity.BaseData != null) (this.DataContext as Galant.DataEntity.BaseData).IsLoading = false;
                             bool isFinishReturn =
                                 isLastItemNew ? OnSavedNewItem() : OnSavedEditedItem();
                             this.DataContext = dataCurrent;
                             dataCurrent.IsLoading = false;
                             dataCurrent.ClearInvalid();
-                            if (isFinishReturn) OnReturn(new ReturnEventArgs<GLTWarter.Data.BusinessEntity>(data.IsNew ? null : data));
+                            if (isFinishReturn) OnReturn(new ReturnEventArgs<Galant.DataEntity.BaseData>(data.IsNew ? null : data));
                             dataCurrent.IsLoading = false;
                             this.DataReadyRefresh();
                             this.Restorefocus();
@@ -442,13 +442,13 @@ namespace GLTWarter.Pages
                     try
                     {
                         //dataCurrent.EndDelete(asr);
-                        dataBackup = dataCurrent.Clone() as Data.BusinessEntity;
+                        dataBackup = dataCurrent.Clone() as Galant.DataEntity.BaseData;
                         dataCurrent.IsLoading = true;
                         bool isFinishReturn = OnDeletedItem();
                         this.DataContext = dataCurrent;
                         dataCurrent.IsLoading = false;
                         dataCurrent.CheckValid();
-                        if (isFinishReturn) OnReturn(new ReturnEventArgs<GLTWarter.Data.BusinessEntity>(null));
+                        if (isFinishReturn) OnReturn(new ReturnEventArgs<Galant.DataEntity.BaseData>(null));
                         dataCurrent.IsLoading = false;
                         this.DataReadyRefresh();
                         this.Restorefocus();
@@ -503,8 +503,8 @@ namespace GLTWarter.Pages
                 {
                     try
                     {
-                        Data.BusinessEntity incomingData = null;// (Data.BusinessEntity)dataCurrent.EndPopulate(asr);
-                        Data.BusinessEntity mydata = (Data.BusinessEntity)dataCurrent;
+                        Galant.DataEntity.BaseData incomingData = null;// (Galant.DataEntity.BaseData)dataCurrent.EndPopulate(asr);
+                        Galant.DataEntity.BaseData mydata = (Galant.DataEntity.BaseData)dataCurrent;
 
                         OnNext(incomingData);
                         dataCurrent.IsLoading = false;
@@ -538,18 +538,18 @@ namespace GLTWarter.Pages
         protected virtual bool OnSavedNewItem() { return true; }
         protected virtual bool OnSavedEditedItem() { return true; }
         protected virtual bool OnDeletedItem() { return true; }
-        protected virtual void OnNext(Data.BusinessEntity incomingData) { }
+        protected virtual void OnNext(Galant.DataEntity.BaseData incomingData) { }
 
         protected void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
             // TODO: Prompt About to lose change!!
             if (dataBackup != null && originalQueryId != dataBackup.QueryId)
             {
-                OnReturn(new ReturnEventArgs<GLTWarter.Data.BusinessEntity>(new Data.BackObject()));
+                OnReturn(new ReturnEventArgs<Galant.DataEntity.BaseData>(new Data.BackObject()));
             }
             else
             {
-                OnReturn(new ReturnEventArgs<GLTWarter.Data.BusinessEntity>(
+                OnReturn(new ReturnEventArgs<Galant.DataEntity.BaseData>(
                     dataBackup ?? 
                     (dataCurrent != null ? 
                         (dataCurrent.IsNew ? new Data.BackObject() : null) 
@@ -564,12 +564,12 @@ namespace GLTWarter.Pages
            // App.Active.MainScreen.NavigateEntityDetails(((Hyperlink)sender).Tag);
         }
 
-        protected virtual void pageNext_Return(object sender, ReturnEventArgs<GLTWarter.Data.BusinessEntity> e)
+        protected virtual void pageNext_Return(object sender, ReturnEventArgs<Galant.DataEntity.BaseData> e)
         {
             OnReturn(e);
         }
 
-        protected void pageOp_Return(object sender, ReturnEventArgs<GLTWarter.Data.BusinessEntity> e)
+        protected void pageOp_Return(object sender, ReturnEventArgs<Galant.DataEntity.BaseData> e)
         {
             if (Data.BackObject.IsReturnGenuine(e)) DoRefresh();
         }

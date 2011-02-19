@@ -24,7 +24,7 @@ namespace GLTWarter.Pages
     public partial class Login : DetailsBase
     {
 
-        public Login(Data.BusinessEntity data)
+        public Login(Galant.DataEntity.BaseData data)
             : base(data)
         {
             InitializeComponent();
@@ -61,7 +61,7 @@ namespace GLTWarter.Pages
 
 
 
-        protected override void OnNext(GLTWarter.Data.BusinessEntity incomingData)
+        protected override void OnNext(Galant.DataEntity.BaseData incomingData)
         {
           
         }
@@ -72,7 +72,7 @@ namespace GLTWarter.Pages
 
         }
 
-        private void DetailsBase_Return(object sender, ReturnEventArgs<Data.BusinessEntity> e)
+        private void DetailsBase_Return(object sender, ReturnEventArgs<Galant.DataEntity.BaseData> e)
         {
 
         }
@@ -88,14 +88,21 @@ namespace GLTWarter.Pages
             Galant.DataEntity.Entity entity = new Galant.DataEntity.Entity();
             entity.Alias = this.textAlias.Text;
             entity.Password = this.passwordPassword.Password.Trim();
-
-            object ob = client.DoRequest(entity, entity, "Login");
-
+            client.DoRequestCompleted += new EventHandler<GLTService.DoRequestCompletedEventArgs>(client_DoRequestCompleted);
+            
+            client.DoRequestAsync(entity, entity, "Login");
+            
+            
             System.Windows.Navigation.ReturnEventHandler<string> handler = VerdictReceived;
             if (handler != null)
             {
                 handler(this, new System.Windows.Navigation.ReturnEventArgs<string>(null));
             }
+        }
+
+        void client_DoRequestCompleted(object sender, GLTService.DoRequestCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
