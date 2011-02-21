@@ -14,45 +14,31 @@
             </Style>
         </ResourceDictionary>
     </pages:DetailsBase.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <DockPanel Grid.Row="1">
-            <DockPanel >
+    <my:DetailsPagePresenter ShowTopLoadingBar="False">
+        <my:DetailsPagePresenter.LatestVersionButtonsPanel>
+            <Button IsDefault="true" IsEnabled="{Binding Path=IsDirty, FallbackValue=false}" Click="buttonNext_Click" >确定</Button>
+            <Button IsCancel="true" Click="buttonCancelPrivate_Click">取消</Button>
+        </my:DetailsPagePresenter.LatestVersionButtonsPanel>
+        <DockPanel>
+            <DockPanel Margin="15,10">
                 <Border DockPanel.Dock="Top" BorderBrush="{x:Static SystemColors.ControlBrush}" BorderThickness="0,0,0,1">
-                    <StackPanel Margin="5,0,0,9">
-                        <TextBlock Name="textMainInstruction" FontSize="16" Foreground="{x:Static SystemColors.HotTrackBrush}" TextWrapping="Wrap" Text="登陆系统"/>
-                        <TextBlock Name="textText" TextWrapping="Wrap" Text="请输入你的用户名密码"/>
+                    <StackPanel Margin="0,0,0,9">
+                        <TextBlock Name="textMainInstruction" FontSize="16" Foreground="{x:Static SystemColors.HotTrackBrush}" TextWrapping="Wrap" Text="登陆配送系统"/>
+                        <TextBlock Name="textText" TextWrapping="Wrap" Text="请输入您的用户名密码！"/>
                     </StackPanel>
                 </Border>
 
-                <StackPanel Margin="5,0,0,9">
+                <StackPanel Margin="80,10,13,10">
                     <my:PropertyRow HeaderText="账号名(_A):">
-                        <TextBox Margin="5" Name="textAlias" Style="{StaticResource vInput}" VerticalAlignment="Center"
+                        <TextBox Name="textAlias" Style="{StaticResource vInput}" VerticalAlignment="Center"
                                  Text="{Binding Alias, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true, ValidatesOnDataErrors=true}" MaxLength="50" />
                     </my:PropertyRow>
                     <my:PropertyRow HeaderText="密码(_P):">
-                        <PasswordBox Margin="5" Name="passwordPassword" Style="{StaticResource vInput}" PasswordChanged="passwordPassword_PasswordChanged" VerticalAlignment="Center"
-                                     MaxLength="50" />
+                        <PasswordBox Name="passwordPassword" Style="{StaticResource vInput}" PasswordChanged="passwordPassword_PasswordChanged" VerticalAlignment="Center"
+                                     Tag="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true, ValidatesOnDataErrors=true}" MaxLength="50" />
                     </my:PropertyRow>
                 </StackPanel>
             </DockPanel>
         </DockPanel>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" IsDefault="true" Click="Button_Click" >确定</Button>
-            <Button Grid.Column="1" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" IsCancel="true" Click="buttonCancelPrivate_Click">取消</Button>
-        </Grid>
-    </Grid>
+    </my:DetailsPagePresenter>
 </pages:DetailsBase>

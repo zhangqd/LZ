@@ -59,5 +59,23 @@ namespace GLTWarter {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yyyy-MM-dd HH:mm:ss.
+        /// </summary>
+        internal static string dateEventConvention {
+            get {
+                return ResourceManager.GetString("dateEventConvention", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yyyy年M月d日 (ddd) HH:mm.
+        /// </summary>
+        internal static string dateEventLongConvention {
+            get {
+                return ResourceManager.GetString("dateEventLongConvention", resourceCulture);
+            }
+        }
     }
 }

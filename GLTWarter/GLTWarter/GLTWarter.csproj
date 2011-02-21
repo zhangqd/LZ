@@ -139,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Data\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LoginScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -179,6 +183,7 @@
       <DependentUpon>WaitingIcon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\BackObject.cs" />
+    <Compile Include="Data\BindingConverter.cs" />
     <Compile Include="Data\SearchCondition.cs" />
     <Compile Include="DeploymentSettings.Designer.cs">
       <AutoGen>True</AutoGen>

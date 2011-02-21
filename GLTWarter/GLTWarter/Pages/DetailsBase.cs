@@ -487,15 +487,19 @@ namespace GLTWarter.Pages
                 BackupFocus();
                 dataCurrent.IsLoading = true;
                 this.DataReadyRefresh();
-                //dataCurrent.BeginSave(NextCallback, null);
+                GLTService.ServiceAPIClient client = new GLTService.ServiceAPIClient();
+                client.DoRequestCompleted += new EventHandler<GLTService.DoRequestCompletedEventArgs>(NextCallback);
+                client.DoRequestAsync(dataCurrent, AppCurrent.Active.Staff, dataCurrent.Operation);                
             }
         }
+
+       
         protected void buttonNext_Click(object sender, RoutedEventArgs e)
         {
             InvokeEnsureLoaded((Action)DoNext, null); ;
         }
 
-        void NextCallback(IAsyncResult asr)
+        void NextCallback(object sender, GLTService.DoRequestCompletedEventArgs e)
         {
             this.Dispatcher.Invoke(
                 System.Windows.Threading.DispatcherPriority.Normal,
@@ -503,7 +507,7 @@ namespace GLTWarter.Pages
                 {
                     try
                     {
-                        Galant.DataEntity.BaseData incomingData = null;// (Galant.DataEntity.BaseData)dataCurrent.EndPopulate(asr);
+                        Galant.DataEntity.BaseData incomingData = e.Result;// (Galant.DataEntity.BaseData)dataCurrent.EndPopulate(asr);
                         Galant.DataEntity.BaseData mydata = (Galant.DataEntity.BaseData)dataCurrent;
 
                         OnNext(incomingData);

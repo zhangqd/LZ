@@ -28,6 +28,7 @@ namespace GLTWarter.Pages
             : base(data)
         {
             InitializeComponent();
+            data.Operation = "Login";
             this.Unloaded += new RoutedEventHandler(Login_Unloaded);
         }
 
@@ -100,9 +101,15 @@ namespace GLTWarter.Pages
             }
         }
 
+        public delegate void DoRequestCompleted(object sender, GLTService.DoRequestCompletedEventArgs e);
+        public event DoRequestCompleted RequestCompletedEvent = null;
+
         void client_DoRequestCompleted(object sender, GLTService.DoRequestCompletedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (RequestCompletedEvent != null)
+                this.RequestCompletedEvent.Invoke(sender, e);
+            else
+            { }
         }
     }
 }

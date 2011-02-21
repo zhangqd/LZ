@@ -37,7 +37,7 @@ namespace GLTWarter
         public LoginScreen()
         {
             InitializeComponent();
-            pageLogin = new Pages.Login(new BackObject());
+            pageLogin = new Pages.Login(AppCurrent.Active.Staff);
            
             this.Loaded += new RoutedEventHandler(LoginScreen_Loaded);
         }
