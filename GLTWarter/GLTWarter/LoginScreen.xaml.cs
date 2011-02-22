@@ -49,16 +49,16 @@ namespace GLTWarter
                 (Action)delegate()
                 {
                     frameContent.Navigate(pageLogin);
-                    pageLogin.VerdictReceived += new System.Windows.Navigation.ReturnEventHandler<string>(pageLogin_Return);
+                    pageLogin.VerdictReceived += new System.Windows.Navigation.ReturnEventHandler<Galant.DataEntity.BaseData>(pageLogin_Return);
                 }
             );
 
             this.Closing += new CancelEventHandler(Login_Closing);
         }
 
-        void pageLogin_Return(object sender, System.Windows.Navigation.ReturnEventArgs<string> e)
+        void pageLogin_Return(object sender, System.Windows.Navigation.ReturnEventArgs<Galant.DataEntity.BaseData> e)
         {
-            if (true)
+            if (e.Result!=null && string.IsNullOrEmpty(e.Result.Error))
             {
                 this.DialogResult = true;
             }

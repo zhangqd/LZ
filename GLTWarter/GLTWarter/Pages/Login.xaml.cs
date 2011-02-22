@@ -49,14 +49,22 @@ namespace GLTWarter.Pages
 
         protected override void PreCommit()
         {
-
+            if (dataCurrent != null)
+            {
+                Galant.DataEntity.Entity data = (Galant.DataEntity.Entity)dataCurrent;
+                if (data.IsValid)
+                {
+                    PasswordPopulation();
+                }
+            }
         }
 
         private void PasswordPopulation()
         {
             if (dataCurrent != null)
             {
-
+                Galant.DataEntity.Entity data = (Galant.DataEntity.Entity)dataCurrent;
+                data.Password = passwordPassword.Password; 
             }
         }
 
@@ -64,52 +72,28 @@ namespace GLTWarter.Pages
 
         protected override void OnNext(Galant.DataEntity.BaseData incomingData)
         {
-          
+            OnVerdictReceived(incomingData);
         }
 
+        protected void OnVerdictReceived(Galant.DataEntity.BaseData credential)
+        {
+            System.Windows.Navigation.ReturnEventHandler<Galant.DataEntity.BaseData> handler = VerdictReceived;
+            if (handler != null)
+            {
+                handler(this, new System.Windows.Navigation.ReturnEventArgs<Galant.DataEntity.BaseData>(credential));
+            }
+        }
 
         private void buttonCancelPrivate_Click(object sender, RoutedEventArgs e)
         {
-
+            OnVerdictReceived(null);
         }
 
         private void DetailsBase_Return(object sender, ReturnEventArgs<Galant.DataEntity.BaseData> e)
         {
 
         }
-        public event System.Windows.Navigation.ReturnEventHandler<string> VerdictReceived;
+        public event System.Windows.Navigation.ReturnEventHandler<Galant.DataEntity.BaseData> VerdictReceived;
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.textAlias.Text.Trim() == string.Empty)
-            { }
-            else if (this.passwordPassword.Password.Trim() == string.Empty)
-            { }
-            GLTService.ServiceAPIClient client = new GLTService.ServiceAPIClient();
-            Galant.DataEntity.Entity entity = new Galant.DataEntity.Entity();
-            entity.Alias = this.textAlias.Text;
-            entity.Password = this.passwordPassword.Password.Trim();
-            client.DoRequestCompleted += new EventHandler<GLTService.DoRequestCompletedEventArgs>(client_DoRequestCompleted);
-            
-            client.DoRequestAsync(entity, entity, "Login");
-            
-            
-            System.Windows.Navigation.ReturnEventHandler<string> handler = VerdictReceived;
-            if (handler != null)
-            {
-                handler(this, new System.Windows.Navigation.ReturnEventArgs<string>(null));
-            }
-        }
-
-        public delegate void DoRequestCompleted(object sender, GLTService.DoRequestCompletedEventArgs e);
-        public event DoRequestCompleted RequestCompletedEvent = null;
-
-        void client_DoRequestCompleted(object sender, GLTService.DoRequestCompletedEventArgs e)
-        {
-            if (RequestCompletedEvent != null)
-                this.RequestCompletedEvent.Invoke(sender, e);
-            else
-            { }
-        }
     }
 }

@@ -507,7 +507,7 @@ namespace GLTWarter.Pages
                 {
                     try
                     {
-                        Galant.DataEntity.BaseData incomingData = e.Result;// (Galant.DataEntity.BaseData)dataCurrent.EndPopulate(asr);
+                        Galant.DataEntity.BaseData incomingData = e.Result;
                         Galant.DataEntity.BaseData mydata = (Galant.DataEntity.BaseData)dataCurrent;
 
                         OnNext(incomingData);
@@ -515,10 +515,9 @@ namespace GLTWarter.Pages
                         this.DataReadyRefresh();
                         this.Restorefocus();
                     }
-                   
                     catch (Exception ex)
                     {
-                        //App.Logger.Error("Exception occurs while Nexting", ex);
+                        AppCurrent.Logger.Error("Exception occurs while Nexting", ex);
                         ShowPopulateError(ex.ToString());
                     }
                     dataCurrent.IsLoading = false;

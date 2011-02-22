@@ -6,7 +6,7 @@
     xmlns:src="clr-namespace:GLTWarter"
     xmlns:diagnostics="clr-namespace:System.Diagnostics;assembly=WindowsBase"
     x:Class="GLTWarter.Pages.Login"
-    Title="{Binding DialogTitle}" Return="DetailsBase_Return" Height="200" Width="400">
+    Title="{Binding DialogTitle}">
     <pages:DetailsBase.Resources>
         <ResourceDictionary>
             <Style TargetType="my:PropertyRow" BasedOn="{StaticResource PropertyRowStretch}">
