@@ -24,7 +24,6 @@ namespace GLTWarter.GLTService {
         string EndGetData(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAPI/DoRequest", ReplyAction="http://tempuri.org/IServiceAPI/DoRequestResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Galant.DataEntity.Package))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Galant.DataEntity.Entity))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Galant.DataEntity.Role))]
         Galant.DataEntity.BaseData DoRequest(Galant.DataEntity.BaseData composite, Galant.DataEntity.Entity staff, string OperationType);

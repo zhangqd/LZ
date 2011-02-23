@@ -4,14 +4,6 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="BaseData" nillable="true" type="tns:BaseData" />
-  <xs:complexType name="Package">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:BaseData">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Package" nillable="true" type="tns:Package" />
   <xs:complexType name="Entity">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseData">
