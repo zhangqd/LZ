@@ -37,6 +37,7 @@ CREATE TABLE `entities` (
   `deposit` decimal(10,2) NOT NULL DEFAULT '0.00',
   `pay_type` int(11) NOT NULL,
   `route_station` int(11) DEFAULT NULL COMMENT '付款类型\n预付，后附，及时付款',
+  `store_log` int(11) DEFAULT NULL COMMENT '库存ID',
   `able_flag` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`entity_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

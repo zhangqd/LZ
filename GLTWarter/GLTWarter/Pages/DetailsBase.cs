@@ -509,11 +509,19 @@ namespace GLTWarter.Pages
                     {
                         Galant.DataEntity.BaseData incomingData = e.Result;
                         Galant.DataEntity.BaseData mydata = (Galant.DataEntity.BaseData)dataCurrent;
-
-                        OnNext(incomingData);
-                        dataCurrent.IsLoading = false;
-                        this.DataReadyRefresh();
-                        this.Restorefocus();
+                        string errorString = this.GetErrorString(incomingData);
+                        if (string.IsNullOrEmpty(errorString))
+                        {
+                            OnNext(incomingData);
+                            dataCurrent.IsLoading = false;
+                            this.DataReadyRefresh();
+                            this.Restorefocus();
+                        }
+                        else
+                        {
+                            AppCurrent.Logger.Info(errorString);
+                            ShowPopulateError(errorString);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -525,6 +533,17 @@ namespace GLTWarter.Pages
                     this.Restorefocus();
                 }
             );
+        }
+
+        string GetErrorString(Galant.DataEntity.BaseData incomingData)
+        {
+            if (!string.IsNullOrEmpty(incomingData.WCFErrorString))
+            {
+                return incomingData.WCFErrorString;
+            }
+            else if (incomingData.WCFFaultCode != null)
+            { }
+            return string.Empty;
         }
 
         /// <summary>
