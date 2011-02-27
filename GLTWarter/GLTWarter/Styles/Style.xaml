@@ -22,8 +22,7 @@
                 <Setter Property="Background" Value="Pink"/>
             </Trigger>
         </Style.Triggers>
-    </Style>
-    
+    </Style>    
     <Style x:Key="StandardButton" TargetType="{x:Type FrameworkElement}">
         <Setter Property="MinWidth" Value="72" />
         <Setter Property="MinHeight" Value="23" />
@@ -32,8 +31,7 @@
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Background" Value="LightGoldenrodYellow" />
         <Setter Property="BorderBrush" Value="DarkGoldenrod" />
-    </Style>
-    
+    </Style>    
     <Style x:Key="DetailsPageBanner" TargetType="{x:Type TextBlock}">
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="FontSize" Value="30"/>
@@ -148,7 +146,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
     <!--Main Screen-->
     <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
         <GradientStop Color="#F3F3F3" Offset="0"/>
@@ -158,6 +155,19 @@
     </LinearGradientBrush>
     <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
 
+    <Style x:Key="ResultItemContainerStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+
+    <Style x:Key="ResultItemContainerAlternateStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="#fff4fdc8" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
     <Style x:Key="DataErrorBar" TargetType="{x:Type ItemsControl}" BasedOn="{StaticResource NotificationBar}">
         <Setter Property="DockPanel.Dock" Value="Top"/>
         <Setter Property="ItemsPanel">

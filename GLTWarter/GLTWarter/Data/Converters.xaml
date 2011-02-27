@@ -35,7 +35,7 @@
     <data:IntDisplayConverter x:Key="IntDisplayConverter"/>
     <data:IntGreaterVisibilityConverter x:Key="IntGreaterVisibilityConverter"/>
     <data:IntLesserVisibilityConverter x:Key="IntLesserVisibilityConverter"/>
-
+    <data:EntityNameConverter x:Key="EntityNameConverter"/>
     <data:IsSameBaseDataBooleanConverter x:Key="IsSameBaseDataBooleanConverter"/>
     <data:IsSameBaseDataNotBooleanConverter x:Key="IsSameBaseDataNotBooleanConverter"/>
     <data:IsSameBaseDataVisibilityConverter x:Key="IsSameBaseDataVisibilityConverter"/>
