@@ -37,8 +37,7 @@ namespace GLTWarter
         public LoginScreen()
         {
             InitializeComponent();
-            pageLogin = new Pages.Login(AppCurrent.Active.Staff);
-           
+            pageLogin = new Pages.Login(AppCurrent.Active.StaffCurrent);
             this.Loaded += new RoutedEventHandler(LoginScreen_Loaded);
         }
 
@@ -58,7 +57,7 @@ namespace GLTWarter
 
         void pageLogin_Return(object sender, System.Windows.Navigation.ReturnEventArgs<Galant.DataEntity.BaseData> e)
         {
-            if (e.Result!=null && string.IsNullOrEmpty(e.Result.Error))
+            if (e.Result!=null)
             {
                 this.DialogResult = true;
             }

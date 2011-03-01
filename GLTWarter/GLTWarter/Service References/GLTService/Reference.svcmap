@@ -21,11 +21,11 @@
     <MetadataSource Address="http://localhost:1926/ServiceAPI.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServiceAPI.xsd" MetadataType="Schema" ID="a4c39101-8762-479b-889a-99900c39fa84" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServiceAPI1.xsd" MetadataType="Schema" ID="8aeb7d01-1999-4173-bf68-0406cb978b79" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?xsd=xsd2" />
-    <MetadataFile FileName="ServiceAPI.disco" MetadataType="Disco" ID="0e70de26-9be2-4ac5-8e59-b50087c33b6c" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?disco" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="2838f4c5-4fdf-492d-961d-f627cb955487" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?wsdl" />
-    <MetadataFile FileName="ServiceAPI2.xsd" MetadataType="Schema" ID="bb283c31-31b5-4f60-b361-f2ed7285ba39" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceAPI.xsd" MetadataType="Schema" ID="088e3070-1c5e-4083-ad1d-fe71be9984d7" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceAPI1.xsd" MetadataType="Schema" ID="996853bf-a8df-43a5-960e-0f8264dbc5c0" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceAPI.disco" MetadataType="Disco" ID="038111b9-4754-45c8-858c-b094458517d0" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?disco" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="acd6ce8f-1d2c-4ea8-bc0b-6cfb398f5dfd" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?wsdl" />
+    <MetadataFile FileName="ServiceAPI2.xsd" MetadataType="Schema" ID="1e3ccf0f-eebd-4c5c-ad91-48e2878d84fe" SourceId="1" SourceUrl="http://localhost:1926/ServiceAPI.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

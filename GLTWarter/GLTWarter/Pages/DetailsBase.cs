@@ -489,7 +489,7 @@ namespace GLTWarter.Pages
                 this.DataReadyRefresh();
                 GLTService.ServiceAPIClient client = new GLTService.ServiceAPIClient();
                 client.DoRequestCompleted += new EventHandler<GLTService.DoRequestCompletedEventArgs>(NextCallback);
-                client.DoRequestAsync(dataCurrent, AppCurrent.Active.Staff, dataCurrent.Operation);                
+                client.DoRequestAsync(dataCurrent, AppCurrent.Active.StaffCurrent, dataCurrent.Operation);                
             }
         }
 
@@ -542,7 +542,9 @@ namespace GLTWarter.Pages
                 return incomingData.WCFErrorString;
             }
             else if (incomingData.WCFFaultCode != null)
-            { }
+            {
+                //添加错误代码转换为提示信息方法
+            }
             return string.Empty;
         }
 

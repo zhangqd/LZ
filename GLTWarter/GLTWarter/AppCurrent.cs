@@ -13,8 +13,14 @@ namespace GLTWarter
         public readonly static log4net.ILog Logger = log4net.LogManager.GetLogger("MainLogger");
 
         public Window MainWindow { get { return Application.Current.MainWindow; } }
-
-        public Galant.DataEntity.Entity Staff { get; set; }
+        /// <summary>
+        /// 当前登陆用户
+        /// </summary>
+        public Galant.DataEntity.Entity StaffCurrent { get; set; }
+        /// <summary>
+        /// 当前程序缓存
+        /// </summary>
+        public Galant.DataEntity.AppStatusCach AppCach { get; set; }
 
         static public AppCurrent Active
         {
@@ -28,7 +34,7 @@ namespace GLTWarter
             System.Threading.Thread.CurrentThread.CurrentUICulture = DeploymentSettings.Default.Locale;
             System.Threading.Thread.CurrentThread.CurrentCulture = DeploymentSettings.Default.Locale;
             Resource.Culture = DeploymentSettings.Default.Locale;
-            Staff = new Entity();
+            StaffCurrent = new Entity();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -72,15 +72,17 @@ namespace GLTWarter.Pages
 
         protected override void OnNext(Galant.DataEntity.BaseData incomingData)
         {
+            AppCurrent.Active.AppCach = incomingData as Galant.DataEntity.AppStatusCach;
+            AppCurrent.Active.StaffCurrent = AppCurrent.Active.AppCach.StaffCurrent;
             OnVerdictReceived(incomingData);
         }
 
-        protected void OnVerdictReceived(Galant.DataEntity.BaseData credential)
+        protected void OnVerdictReceived(Galant.DataEntity.BaseData incomingData)
         {
             System.Windows.Navigation.ReturnEventHandler<Galant.DataEntity.BaseData> handler = VerdictReceived;
             if (handler != null)
             {
-                handler(this, new System.Windows.Navigation.ReturnEventArgs<Galant.DataEntity.BaseData>(credential));
+                handler(this, new System.Windows.Navigation.ReturnEventArgs<Galant.DataEntity.BaseData>(incomingData));
             }
         }
 

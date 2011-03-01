@@ -332,9 +332,6 @@
     <WCFMetadataStorage Include="Service References\GLTService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\GLTService\ServiceAPI.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\GLTService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -349,6 +346,9 @@
   <ItemGroup>
     <Folder Include="Pages\Product\" />
     <Folder Include="Pages\Station\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GLTService\ServiceAPI.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
